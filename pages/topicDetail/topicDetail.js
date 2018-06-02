@@ -2,6 +2,7 @@ var app = getApp();
 var WxParse = require('../../lib/wxParse/wxParse.js');
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
+const { title } = require('../../config/api.js');
 
 Page({
   data: {
@@ -73,7 +74,7 @@ Page({
   onShareAppMessage: function(res) {
     const { topic } = this.data;
     return {
-      title: '跑腿老男孩-' + topic.title
+      title: title + '-' + topic.title
     }
   }
 })

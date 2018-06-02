@@ -1,5 +1,6 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
+const { title } = require('../../config/api.js');
 
 
 var app = getApp();
@@ -63,7 +64,7 @@ Page({
   onShareAppMessage: function (res) {
     const { brand } = this.data;
     return {
-      title: '跑腿老男孩-' + brand.title
+      title: title + brand.title
     }
   }
 })

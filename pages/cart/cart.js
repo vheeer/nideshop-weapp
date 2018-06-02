@@ -1,5 +1,6 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
+const { title } = require('../../config/api.js');
 
 var app = getApp();
 
@@ -283,6 +284,6 @@ Page({
     });
   },
   onShareAppMessage: res => ({
-    title: '跑腿老男孩-购物车'
+    title: title + '-购物车'
   })
 })

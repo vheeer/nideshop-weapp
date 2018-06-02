@@ -3,6 +3,7 @@ var WxParse = require('../../lib/wxParse/wxParse.js');
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 const pay = require('../../services/pay.js');
+const { title } = require('../../config/api.js');
 
 Page({
   data: {
@@ -393,7 +394,7 @@ Page({
   onShareAppMessage: function (res) {
     const { goods } = this.data;
     return {
-      title: '跑腿老男孩-' + goods.name
+      title: title + '-' + goods.name
     }
   }
 })

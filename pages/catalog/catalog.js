@@ -1,5 +1,6 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
+const { title } = require('../../config/api.js');
 
 Page({
   data: {
@@ -75,7 +76,7 @@ Page({
   },
   onShareAppMessage: function (res) {
     return {
-      title: '跑腿老男孩-分类'
+      title: title + '-分类'
     }
   }
 })

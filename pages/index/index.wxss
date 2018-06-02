@@ -1,11 +1,11 @@
 .banner {
-  width: 750rpx;
-  height: 417rpx;
+  width: 100%;
+  height: 240px;
 }
 
 .banner image {
   width: 100%;
-  height: 417rpx;
+  /* height: 417rpx; */
 }
 
 .m-menu {

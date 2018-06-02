@@ -1,5 +1,6 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
+const { title } = require('../../config/api.js');
 var app = getApp();
 
 Page({
@@ -106,7 +107,7 @@ Page({
   onShareAppMessage: function (res) {
     const { others } = this.data;
     return {
-      title: '跑腿老男孩-' + others[0].new_title
+      title: title + '-' + others[0].new_title
     }
   }
 })
