@@ -1,0 +1,22 @@
+<view>
+	<block wx:for="{{list}}" wx:key="item">
+		<view class="user">
+			<!-- 级别 -->
+			<view class="level">
+				我的{{item.depth}}级下线
+			</view>
+			<!-- 昵称 -->
+			<view class="nickname">
+				{{item.nickname}}
+			</view>
+			<!-- 类型 -->
+			<view class="is_distributor">
+				{{item.is_distributor?"分销商":"粉丝"}}
+			</view>
+			<!-- 头像 -->
+			<view class="avatar_box">
+				<image class="avatar" src="{{item.avatar}}" />
+			</view>
+		</view>
+	</block>
+</view>

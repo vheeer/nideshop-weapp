@@ -1,0 +1,14 @@
+<view class="container">
+    <view class="orders">
+        <navigator url="../../orderDetail/orderDetail?read_only=1&&id={{item.id}}" class="order" wx:for="{{list}}" wx:key="{{item.id}}">
+            <view class="h">
+                <view class="l">订单编号：{{item.order_sn}}</view>
+                <view class="r">{{index + 1}}</view>
+            </view>
+            <view class="b">
+                <view class="l">实付：￥{{item.actual_price}}， </view>
+                <view class="commision">返佣：￥{{item.commision_price}}</view>
+            </view>
+        </navigator>
+    </view>
+</view>

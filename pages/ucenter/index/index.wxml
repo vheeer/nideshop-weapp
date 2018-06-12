@@ -75,6 +75,12 @@
         <text class="txt">意见反馈</text>
       </navigator>
     </view>
+    <view class="item item-bottom">
+      <navigator url="/pages/ucenter/distribute/index/index" class="a">
+        <text class="icon feedback"></text>
+        <text class="txt">分销</text>
+      </navigator>
+    </view>
   </view>
 
   <!--<view class="logout" bindtap="exitLogin">退出登录</view>-->

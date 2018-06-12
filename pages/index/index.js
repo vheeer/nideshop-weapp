@@ -18,7 +18,7 @@ Page({
   },
   onShareAppMessage: res => ({
       title,
-      path: '/pages/index/index'
+      path: '/pages/index/index?share_user_id=' + this.data.userInfo.id
   }),
 
   getIndexData: function () {
@@ -46,6 +46,7 @@ Page({
     // });
   },
   onLoad: function (options) {
+    console.log("index options: ", options);
     this.getIndexData();
   },
   onReady: function () {

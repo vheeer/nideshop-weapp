@@ -9,7 +9,8 @@ Page({
   },
   onLoad: function (onewGoodsptions) {
     // 页面初始化 options为页面跳转所带来的参数
-    console.log(app.globalData)
+    console.log(app.globalData);
+
   },
   onReady: function () {
 
@@ -52,7 +53,7 @@ Page({
       console.log(err)
     });
   },
-  exitLogin: function () {
+  exitLogin: function(){
     wx.showModal({
       title: '',
       confirmColor: '#b4282d',

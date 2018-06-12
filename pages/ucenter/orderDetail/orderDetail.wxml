@@ -4,12 +4,12 @@
         <view class="item-b">订单编号：{{orderInfo.order_sn}}</view>
         <view class="item-c">
             <view class="l">实付：<text class="cost">￥{{orderInfo.actual_price}}</text></view>
-            <view class="r">
+            <view wx:if="{{!read_only}}" class="r">
                 <view class="btn" wx:if="{{handleOption.cancel}}" bindtap="cancelOrder">取消订单</view>
                 <view class="btn active" wx:if="{{handleOption.pay}}" bindtap="payOrder">去付款</view>
                 <view class="btn active" wx:if="{{handleOption.confirm}}" bindtap="confirmOrder">确认收货</view>
-                <!-- <view class="btn active" wx:if="{{handleOption.return}}" bindtap="returnOrder">退款</view>  -->
-                <!-- <view class="btn active" wx:if="{{handleOption.comment}}" bindtap="commentOrder">评论</view> -->
+                <view class="btn active" wx:if="{{handleOption.return}}" bindtap="returnOrder">退款</view> 
+                <view class="btn active" wx:if="{{handleOption.comment}}" bindtap="commentOrder">评论</view>
             </view>
         </view>
     </view>

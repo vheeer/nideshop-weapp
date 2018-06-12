@@ -1,0 +1,21 @@
+<!--pages/ucenter/distribute/cash/cash.wxml-->
+<view class="top">
+	<view class="cash">
+        <view class="cash_btn"><navigator url="/pages/ucenter/distribute/cash_record/cash_record">提现记录</navigator></view>
+        <view class="title">可提现佣金</view>
+        <view class="money">{{balance}}元</view>
+    </view>
+	<!-- 提现开始  -->
+	<form bindsubmit="withDraw" bindreset="formReset">
+		<view class="real_name">
+		  <view class="section__title">姓名</view>
+		  <input name="real_name" placeholder="请输入您的真实姓名" />
+		</view>
+		<view class="amount">
+		  <view class="section__title">金额</view>
+		  <input name="amount" type="number" placeholder="请输入提现金额"  />
+		</view>
+		<button formType="submit">提现</button>
+	</form>
+	<!-- 提现结束 -->
+</view>

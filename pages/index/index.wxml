@@ -126,4 +126,4 @@
   </view>
 </view>
 
-<button  bindtap="withdraw">提现</button>  
+<!-- <button  bindtap="withdraw">提现</button>   -->

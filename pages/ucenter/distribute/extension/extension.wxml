@@ -1,0 +1,9 @@
+<view>
+	<view class="canvas_box">
+	  <canvas class="canvas" canvas-id="canvas"></canvas>
+	</view>
+	<view>我的推广码</view>
+	<image class="share_img_tmp" src="{{share_img_tmp}}" mode="widthfix" />
+	<button class="btns cut" bindtap="cut">保存上面的图片，分享到朋友圈~</button>
+	<button class="btns share" open-type="share">直接分享到好友</button>
+</view>

@@ -1,0 +1,35 @@
+/* pages/ucenter/distribute/group/group.wxss */
+page {
+	background-color: #eee;
+}
+.user {
+	position: relative;
+	padding: 8px;
+	height: 71px;
+	margin: 0 0 5px 0;
+	background-color: white;
+}
+.avatar_box {
+	margin-left: 8px;
+	width: 55px;
+	height: 55px;
+	border-radius: 200px;
+	overflow: hidden;
+}
+.avatar {
+	width: 100%;
+	height: 100%;
+}
+.nickname {
+	position: absolute;
+	left: 80px;
+}
+.is_distributor {
+	position: absolute;
+	right: 8px;
+	top: 46px;
+}
+.level {
+	position: absolute;
+	right: 8px;
+}

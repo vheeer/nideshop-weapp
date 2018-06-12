@@ -1,7 +1,7 @@
 // const ApiRootUrl = 'http://127.0.0.1:8360/api/';
 const ApiRootUrl = 'https://www.yinmudianying.club/nideshop-mul-dev/api/';
-const mch = "dapingkeji";
-const title = "大萍科技";
+const mch = "jiaju";
+const title = "爱香美韩妆";
 module.exports = {
   title,
   IndexUrl: ApiRootUrl + 'index/index?mch=' + mch, //首页数据接口
@@ -31,6 +31,7 @@ module.exports = {
 
   OrderSubmit: ApiRootUrl + 'order/submit?mch=' + mch, // 提交订单
   OrderQuickbuy: ApiRootUrl + 'order/quickbuy?mch=' + mch, // 直接购买提交订单
+
   PayPrepayId: ApiRootUrl + 'pay/prepay?mch=' + mch, //获取微信统一下单prepay_id
 
   CollectList: ApiRootUrl + 'collect/list?mch=' + mch,  //收藏列表
@@ -66,5 +67,13 @@ module.exports = {
   FootprintList: ApiRootUrl + 'footprint/list?mch=' + mch,  //足迹列表
   FootprintDelete: ApiRootUrl + 'footprint/delete?mch=' + mch,  //删除足迹
 
-  withdraw: ApiRootUrl + 'c/index?mch=' + mch //提现
+  DistributeDetail: ApiRootUrl + 'distribute/detail?mch=' + mch, //详情
+  DistributeWithdraw: ApiRootUrl + 'distribute/withdraw?mch=' + mch, //提现操作
+  DistributeWithdrawList: ApiRootUrl + 'cash/list?mch=' + mch, //提现记录
+  DistributeList: ApiRootUrl + 'distribute/list?mch=' + mch, //我的分销订单
+
+  DistributeApply: ApiRootUrl + 'distribute_apply/apply?mch=' + mch, //申请
+
+  SetReferee: ApiRootUrl + 'user/setreferee?mch=' + mch, //设置推荐人
+  Group: ApiRootUrl + 'user/group?mch=' + mch //我的团队
 };

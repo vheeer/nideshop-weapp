@@ -1,0 +1,65 @@
+<view wx:if="{{is_distributor}}" class="container">
+  <view class="profile-info">
+    <!-- 用户 -->
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatar}}"></image>
+      <view class="info">
+        <text class="name">{{userInfo.nickname}}</text>
+        <text wx:if="{{userInfo.referee}}" class="level">推荐人：{{userInfo.referee}}</text>
+         <button wx:if="{{!userInfo.referee}}" open-type="getUserInfo" class="getUserInfo" plain="{{true}}" hover-start-time="0" hover-stay-time="0"  bindgetuserinfo="bindgetuserinfo">点击这里登陆</button>
+      </view>
+    </view>
+    <!-- 佣金 -->
+    <view class="commision">
+      <view class="cash">
+        <view class="cash_btn"><navigator url="/pages/ucenter/distribute/cash/cash">提现</navigator></view>
+        <view class="title">可提现佣金</view>
+        <view class="money">{{balance}}元</view>
+      </view>
+      <view class="cash_paid">
+        <view class="title">成功提现金额</view>
+        <view class="money">{{cash_paid}}元</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="user-menu">
+    <view class="item">
+      <navigator url="/pages/ucenter/distribute/order/order" class="a">
+        <text class="icon coupon"></text>
+        <text class="txt">分销订单</text>
+      </navigator>
+    </view>
+    <view class="item no-border">
+      <navigator url="/pages/ucenter/distribute/cash_record/cash_record" class="a">
+        <text class="icon gift"></text>
+        <text class="txt">提现明细</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/ucenter/distribute/group/group" class="a">
+        <text class="icon address"></text>
+        <text class="txt">我的团队</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/ucenter/distribute/extension/extension?share_background={{share_background}}&&code={{code}}" class="a">
+        <text class="icon security"></text>
+        <text class="txt">推广</text>
+      </navigator>
+    </view>
+  </view>
+
+  <!--<view class="logout" bindtap="exitLogin">退出登录</view>-->
+</view>
+<view wx:else>
+  <!-- 申请分销商表单开始  -->
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="real_name">
+      <view class="section__title">姓名</view>
+      <input name="real_name" placeholder="请输入您的真实姓名" />
+    </view>
+    <button formType="submit">成为分销商</button>
+  </form>
+  <!-- 申请分销商表单结束 -->
+</view>

@@ -1,0 +1,226 @@
+/* pages/ucenter/distribute/index/index.wxss */
+
+page{
+    height: 100%;
+    width: 100%;
+    background: #f4f4f4;
+}
+.container{
+    background: #f4f4f4;
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+}
+.profile-info{
+    width: 100%;
+    padding: 0 30.25rpx;
+    background: red;
+    color: white;
+}
+
+.profile-info .avatar{
+    height: 58px;
+    width: 58px;
+    border-radius: 50%;
+}
+
+.profile-info .info{
+    flex: 1;
+    height: 85rpx;
+    padding-left: 31.25rpx;
+}
+
+.profile-info .name{
+    display: block;
+    height: 45rpx;
+    line-height: 45rpx;
+    color: #fff;
+    font-size: 37.5rpx;
+    margin-bottom: 10rpx;
+}
+
+.profile-info .level{
+    display: block;
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-bottom: 10rpx;
+    color: #7f7f7f;
+    font-size: 30rpx;
+}
+
+.user-menu{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+}
+
+.user-menu .item{
+    float: left;
+    width: 33.33333%;
+    height: 187.5rpx;
+    border-right: 1px solid rgba(0,0,0,.15);
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    text-align: center;
+}
+
+.user-menu .item .a{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-menu .item.no-border {
+    border-right: 0;
+}
+
+.user-menu .item.item-bottom {
+    border-bottom: none;
+}
+
+.user-menu .icon{
+    margin: 0 auto;
+    display: block;
+    height: 52.803rpx;
+    width: 52.803rpx;
+    margin-bottom: 16rpx;
+}
+
+.user-menu .icon.order{
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -437.5rpx no-repeat;
+    background-size: 52.803rpx;
+}
+
+.user-menu .icon.coupon{
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -62.4997rpx no-repeat;
+    background-size: 52.803rpx;
+}
+
+.user-menu .icon.gift{
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -187.5rpx no-repeat;
+    background-size: 52.803rpx;
+}
+
+.user-menu .icon.address{
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 0 no-repeat;
+    background-size: 52.803rpx;
+}
+
+.user-menu .icon.security{
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -500rpx no-repeat;
+    background-size: 52.803rpx;
+}
+
+.user-menu .icon.kefu{
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -312.5rpx no-repeat;
+    background-size: 52.803rpx;
+}
+
+.user-menu .icon.help{
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -250rpx no-repeat;
+    background-size: 52.803rpx;
+}
+
+.user-menu .icon.feedback{
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -125rpx no-repeat;
+    background-size: 52.803rpx;
+}
+
+
+.user-menu .txt{
+    display: block;
+    height: 24rpx;
+    width: 100%;
+    font-size: 24rpx;
+}
+
+.logout{
+    margin-top: 50rpx;
+    height: 101rpx;
+    width: 100%;
+    line-height: 101rpx;
+    text-align: center;
+    background: #fff;
+    color: #333;
+    font-size: 30rpx;
+}
+.getUserInfo {
+-width:70px;
+border:none;
+top:-61px;
+position:relative;
+left:-13px;
+height:80px;
+
+  
+}
+
+.user-info {
+	padding:20px 0 10px 5px;
+border-bottom:solid 1px white;
+
+}
+.commision {
+	position: relative;
+	padding: 0 0 10px 0;
+}
+.user-info .info {
+position:absolute;
+left:83px;
+top:28px;
+
+}
+.commision view, .cash_paid view {
+	color: white;
+}
+.commision .title, .cash_paid .title {
+	font-size: 14px;
+	padding: 8px 0 5px 0;
+	}
+.commision .money, .cash_paid .money {
+	font-size: 14px;
+	padding: 8px 0 5px 0;
+	}
+.commision {
+
+}
+.cash_paid {
+
+}
+.getUserInfo {
+	border: solid 1px red;
+	top:-38px;
+	position:relative;
+	left:-13px;
+	height:69px;
+	width:222px;
+	line-height:95px;
+}
+.cash_btn {
+	position: absolute;
+	right: 8px;
+	top: 10px;
+	border: solid 1px white;
+	border-radius: 4px;
+	font-size: 17px;
+	padding: 2px 5px;
+}
+.real_name input {
+    display: inline-block;
+    margin: 0 0 0 55px;
+    height: 54px;
+}
+form button {
+    margin: 20px 8px;
+    background-color: red;
+    color: white;
+}
+.real_name view {
+    position: absolute;
+    line-height: 54px;
+    padding: 0 0 0 8px;
+
+}

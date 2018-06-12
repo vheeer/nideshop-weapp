@@ -1,0 +1,23 @@
+/* pages/ucenter/distribute/extension/extension.wxss */
+/* pages/ucenter/distribute/distribute.wxss */
+
+.myCanvas {
+  position: relative;
+  margin: auto;
+  width: 320px;
+  height: 411px;
+}
+.canvas_box {
+  position: absolute;
+  top: -10000px;
+  width: 100%;
+  height: 0px;
+}
+.canvas {
+  width: 100%;
+  height: 270px;
+}
+.share_img_tmp {
+  width: 100%;
+  height: 270px;
+}

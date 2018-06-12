@@ -1,0 +1,10 @@
+<view class="container">
+    <view class="orders">
+        <view class="order" wx:for="{{list}}" wx:key="{{item.id}}">
+            <view class="h">
+                <view class="l">提现金额：{{item.cash_price}}元</view>
+                <view class="r">时间：{{item.add_time}}</view>
+            </view>
+        </view>
+    </view>
+</view>

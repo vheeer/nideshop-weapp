@@ -14,25 +14,70 @@ function goLogin(){
   });
 }
 App({
-  onLaunch: function () {
-    //获取用户的登录信息
-    // user.checkLogin().then(res => {
-    //   console.log('app login')
-    //   this.globalData.userInfo = wx.getStorageSync('userInfo');
-    //   this.globalData.token = wx.getStorageSync('token');
-    // }).catch(() => {
+  onLaunch: function (options) {
       
-    // });
-    //goLogin();
+      const { referee: referee_2 } = options.query; //分享好友的推荐人
+      let referee_3; //发分享码的推荐人
+      const scene = decodeURIComponent(options.scene); 
+      console.log("scene: ", scene);
+      if(scene.indexOf("vheeer") > -1){
+        referee_3 = scene.split("_")[1];
+      }else{
+        referee_3 = null;
+      }
+
+      const referee_inter = referee_2 || referee_3 || 0;
+
+      console.log("referee_2", referee_2);
+      console.log("referee_3", referee_3);
+      console.log("finally referee_inter", referee_inter);
+
     user.loginByWeixin().then(res => {
-    // this.setData({
-    //   userInfo: res.data.userInfo
-    // });
       this.globalData.userInfo = res.data.userInfo;
       this.globalData.token = res.data.token;
+
+      const { id, referee: referee_old } = res.data.userInfo;
+      console.log("referee_old", referee_old);
+      // 如果是第一次登陆（referee是null）
+      if (referee_old === null){
+        util.request(api.SetReferee, {
+          referee: referee_inter
+        }, "POST")
+        .then(function (res) {
+          console.log("设置第一次登录的referee res: ", res);
+        });
+
+        
+        wx.showToast({
+          title: "第一次登陆"
+        })
+      }else{
+
+      }
+
     }).catch((err) => {
       console.log(err);
     });
+    Date.prototype.format = function(format) {
+      var date = {
+          "M+": this.getMonth() + 1,
+          "d+": this.getDate(),
+          "h+": this.getHours(),
+          "m+": this.getMinutes(),
+          "s+": this.getSeconds(),
+          "q+": Math.floor((this.getMonth() + 3) / 3),
+          "S+": this.getMilliseconds()
+      };
+      if (/(y+)/i.test(format)) {
+          format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+      }
+      for (var k in date) {
+          if (new RegExp("(" + k + ")").test(format)) {
+              format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+          }
+      }
+      return format;
+    }
   },
   globalData: {
     userInfo: {

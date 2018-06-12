@@ -52,8 +52,19 @@ Page({
         url: '/pages/shopping/checkout/checkout'
       })
     } else {
+      console.log("app.globalData.referee", app.globalData);
+      // 获取推荐人
+      let referee = app.globalData.referee;
+      referee = referee ? referee : null;
       //打开
-      util.request(api.OrderQuickbuy, { goodsId: this.data.quickPayGoodsId, number: this.data.quickPaynumber, productId: this.data.quickPayProductId, addressId: event.currentTarget.dataset.addressId, postscript: this.data.quickPayPostscript }, "POST")
+      util.request(api.OrderQuickbuy, { 
+        goodsId: this.data.quickPayGoodsId, 
+        number: this.data.quickPaynumber, 
+        productId: this.data.quickPayProductId, 
+        addressId: event.currentTarget.dataset.addressId, 
+        postscript: this.data.quickPayPostscript,  
+        referee
+      }, "POST")
         .then(function (res) {
           let _res = res;
           if (_res.errno == 0) {

@@ -1,0 +1,76 @@
+/* pages/ucenter/distribute/cash/cash.wxss */
+page {
+	background-color: #eee;
+}
+.cash_btn {
+	position: absolute;
+	right: 8px;
+	top: 10px;
+	border: solid 1px white;
+	border-radius: 4px;
+	font-size: 17px;
+	padding: 2px 5px;
+}
+.real_name {
+	position: relative;
+	height: 54px;
+	background-color: white;
+	margin: 8px 0;
+}
+.amount {
+	position: relative;
+	height: 54px;
+	background-color: white;
+	margin: 8px 0;
+}
+.real_name view {
+	position: absolute;
+	line-height: 54px;
+	padding: 0 0 0 8px;
+}
+.amount view {
+	position: absolute;
+	line-height: 54px;
+	padding: 0 0 0 8px;
+
+}
+.real_name input {
+	display: inline-block;
+	margin: 0 0 0 55px;
+	height: 54px;
+}
+.amount input {
+	display: inline-block;
+	margin: 0 0 0 55px;
+	height: 54px;
+}
+form button {
+	margin: 20px 8px;
+	background-color: red;
+	color: white;
+}
+.cash_btn {
+	position: absolute;
+	right: 8px;
+	top: 20px;
+	border: solid 1px white;
+	border-radius: 4px;
+	font-size: 14px;
+	padding: 0px 5px;
+}
+.cash {
+	background-color: red;
+}
+.cash .cash_btn {
+	padding: 8px;
+	color: white;
+}
+.cash .title {
+	padding: 8px;
+	color: white;
+}
+.cash .money {
+	padding: 8px;
+	color: white;
+	font-size: 15px;
+}

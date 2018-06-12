@@ -1,6 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/ucenter/distribute/group/group",
+    "pages/ucenter/distribute/index/index",
+    "pages/ucenter/distribute/extension/extension",
+    "pages/ucenter/index/index",
+    "pages/ucenter/distribute/cash/cash",
+    "pages/ucenter/distribute/order/order",
+    "pages/ucenter/distribute/cash_record/cash_record",
     "pages/catalog/catalog",
     "pages/newGoods/newGoods",
     "pages/hotGoods/hotGoods",
@@ -12,13 +19,12 @@
     "pages/ucenter/express/express",
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/coupon/coupon",
-    "pages/ucenter/collect/collect",
+    "pages/ucenter/collect/collect",  
     "pages/auth/login/login",
     "pages/auth/register/register",
     "pages/auth/reset/reset",
     "pages/pay/pay",
     "pages/payResult/payResult",
-    "pages/ucenter/index/index",
     "pages/topic/topic",
     "pages/comment/comment",
     "pages/commentPost/commentPost",
@@ -37,7 +43,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "大萍科技",
+    "navigationBarTitleText": "爱香美韩妆",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": false
   },
