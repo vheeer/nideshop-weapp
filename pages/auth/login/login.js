@@ -1,4 +1,6 @@
 var api = require('../../../config/api.js');
+var util = require('../../../utils/util.js');
+var user = require('../../../services/user.js');
 var app = getApp();
 Page({
   data: {
@@ -10,7 +12,11 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     // 页面渲染完成
-
+    if(wx.getStorageSync("userInfo")){
+      wx.switchTab({
+        url: '../../index/index'
+      });
+    }
   },
   onReady: function () {
 
@@ -29,41 +35,16 @@ Page({
   startLogin: function () {
     var that = this;
 
-    if (that.data.password.length < 1 || that.data.username.length < 1) {
-      wx.showModal({
-        title: '错误信息',
-        content: '请输入用户名和密码',
-        showCancel: false
+    user.loginByWeixin().then(res => {
+      that.setData({
+        userInfo: res.data.userInfo
       });
-      return false;
-    }
-
-    wx.request({
-      url: api.ApiRootUrl + 'auth/login',
-      data: {
-        username: that.data.username,
-        password: that.data.password
-      },
-      method: 'POST',
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        if(res.data.code == 200){
-          that.setData({
-            'loginErrorCount': 0
-          });
-          wx.setStorage({
-            key:"token",
-            data: res.data.data.token,
-            success: function(){
-              wx.switchTab({
-                url: '/pages/ucenter/index/index'
-              });
-            }
-          });
-        }
-      }
+      app.globalData.token = res.data.token;
+      wx.switchTab({
+        url: '../../index/index'
+      });
+    }).catch((err) => {
+      console.log(err)
     });
   },
   bindUsernameInput: function (e) {

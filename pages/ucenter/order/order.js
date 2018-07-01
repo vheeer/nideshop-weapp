@@ -23,17 +23,24 @@ Page({
         }
       })
     }
-    this.getOrderList();
   },
   getOrderList(){
-    let that = this;
+    const that = this;
     util.request(api.OrderList).then(function (res) {
       if (res.errno === 0) {
-        console.log(res.data);
         that.setData({
           orderList: res.data.data
         });
       }
+    });
+  },
+  getExpress() {
+    const that = this;
+    util.request(api.OrderExpress, {
+      orderId: 510
+    }, "GET")
+    .then(res => {
+      console.log("物流查询结果： ", res);
     });
   },
   payOrder(event) {
@@ -47,6 +54,8 @@ Page({
     // 页面渲染完成
   },
   onShow:function(){
+    this.getOrderList();
+    this.getExpress();
     // 页面显示
   },
   onHide:function(){

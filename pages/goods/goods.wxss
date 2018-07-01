@@ -516,7 +516,7 @@
 .bottom-btn .l{
     float: left;
     height: 100rpx;
-    width: 162rpx;
+    width: 108rpx;
     border: 1px solid #f4f4f4;
     display: flex;
     align-items: center;
@@ -711,3 +711,21 @@
 .postscript {
   margin-top: 10px;
 }
+.con button {
+    margin:0 auto;
+    height:45px;
+    width:45px;
+    background:url('https://www.yinmudianying.club/nideshop-mul/files/images/contact.png');
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+    padding-top:3px;
+}
+.con button image {
+    width:50%;
+    height:50%;
+}
+button::after {
+  border: 0;
+} 

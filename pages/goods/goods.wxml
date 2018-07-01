@@ -147,14 +147,21 @@
   </view>
 
   <view class="bottom-btn">
+    <!-- 收藏 -->
     <view class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect">
       <image class="icon" src="{{ collectBackImage }}"></image>
     </view>
-    <view class="l l-cart">
+    <!-- 客服 -->
+    <view class="l con">
+      <button open-type="contact">
+        <image mode="aspectFill" src="https://www.yinmudianying.club/nideshop-mul/files/images/contact.png" />
+      </button>
+    </view>
+    <!-- 购物车 -->
+    <view class="l l-cart" bindtap="openCartPage" >
       <view class="box">
         <text class="cart-count">{{cartGoodsCount}}</text>
-        <image bindtap="openCartPage" class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
-
+        <image class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
       </view>
     </view>
     <view class="c" bindtap='buyNow'>立即购买</view>

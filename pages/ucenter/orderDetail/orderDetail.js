@@ -11,10 +11,14 @@ Page({
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
+    const { id, read_only } = options;
     this.setData({
       orderId: options.id,
-      read_only: options.read_only
+      read_only: read_only?read_only:null
     });
+  },
+  onShow: function () {
+    // 页面显示
     this.getOrderDetail();
   },
   getOrderDetail() {
@@ -76,8 +80,31 @@ Page({
       url: '/pages/commentPost/commentPost?typeId=0&valueId=' + goods_id,
     })
   },
-  returnOrder() {
+  refundOrder() {
     let that = this;
+    wx.showModal({ 
+      title: "提示",
+      content: "您确定要申请退款吗？",
+      success: function({ confirm, cancel }){
+        if(confirm === true)
+        {
+          util.request(api.OrderRefund, {
+            orderId: that.data.orderId
+          })
+          .then(function(res){
+            console.log("申请退款res: ", res);
+            if(res.data === "success"){
+              app.globalData.need_refresh_order_detail = true;
+              wx.navigateBack({
+                delta: 1
+              })
+            }else{
+              wx.showToast({ title: "操作失败" });
+            }
+          })
+        }
+      }
+    })
   },
   confirmOrder() {
     let that = this;
@@ -119,9 +146,6 @@ Page({
   },
   onReady: function () {
     // 页面渲染完成
-  },
-  onShow: function () {
-    // 页面显示
   },
   onHide: function () {
     // 页面隐藏

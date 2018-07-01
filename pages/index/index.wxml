@@ -1,6 +1,7 @@
 
 <!--index.wxml-->
 <view class="container">
+  <!-- 轮播开始 -->
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
       <navigator url="{{item.link}}">
@@ -8,13 +9,24 @@
       </navigator>
     </swiper-item>
   </swiper>
+  <!-- 轮播结束 -->
+  <!-- 广播开始 -->
+  <wxc-notice scroll="{{true}}" close="{{true}}" bg-color="#ff9300" bg-rgba="rgba(255, 147, 0, 0)" show-icon="{{true}}" notice="{{others[0].notice}}"></wxc-notice>
+  <!-- 广播结束 -->
+  <!-- 插图一开始 -->
+  <view class="index_img_1">
+    <image mode="widthFix" src="{{others[0].index_img_1}}" />
+  </view>
+  <!-- 插图一结束 -->
+  <!-- 频道开始 -->
   <view wx:if="{{channel.length !== 0}}" class="m-menu">
     <navigator  class="item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
       <image src="{{item.icon_url}}" background-size="cover"></image>
       <text>{{item.name}}</text>
     </navigator>
   </view>
-    
+  <!-- 频道结束 -->
+  <!-- 品牌开始 -->
   <view wx:if="{{brands.length > 0}}" class="a-section a-brand">
     <view class="h">
       <navigator url="../brand/brand">
@@ -36,7 +48,9 @@
       </view>
     </view>
   </view>
-  <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
+  <!-- 品牌结束 -->
+  <!-- 新品开始 -->
+  <!-- <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
     <view class="h">
       <view>
         <navigator url="../newGoods/newGoods">
@@ -53,8 +67,10 @@
         </navigator>
       </view>
     </view>
-  </view>
-  <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
+  </view> --> 
+  <!-- 新品结束 -->
+  <!-- 热品开始 -->
+  <!-- <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
     <view class="h">
       <view>
         <navigator url="../hotGoods/hotGoods">
@@ -76,7 +92,9 @@
         </navigator>
       </view>
     </view>
-  </view>
+  </view> -->
+  <!-- 热品结束 -->
+  <!-- 专题开始 -->
   <view class="a-section a-topic" wx:if="{{topics.length > 0}}">
     <view class="h">
       <view>
@@ -100,7 +118,21 @@
       </scroll-view>
     </view>
   </view>
-  <view class="good-grid" wx:for="{{floorGoods}}" wx:key="{{item.id}}">
+  <!-- 专题结束 -->
+  <!-- 分类开始 -->
+  <view class="b category">
+    <block wx:for="{{firstCategoryList}}" wx:for-index="index" wx:key="{{item}}">
+      <view class="item {{index % 2 == 0 ? '' : 'item-b'}}">
+        <text class="name">{{item.name}}</text>
+        <navigator url="../category/category?id={{item.id}}" class="a">
+          <image mode="aspectFill" class="img" src="{{item.icon_url}}" background-size="cover"></image>
+        </navigator>
+      </view>
+    </block>
+  </view>
+  <!-- 分类结束 -->
+  <!-- 分类商品开始 -->
+  <view class="good-grid" wx:for="{{categoryGoodsList}}" wx:key="{{item.id}}">
     <view class="h">
       <view>
         <text>{{item.name}}</text>
@@ -109,21 +141,22 @@
     <view class="b">
       <block wx:for="{{item.goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="{{iitem.id}}">
         <view class="item {{iindex % 2 == 0 ? '' : 'item-b'}}">
-          <navigator url="../goods/goods?id={{iitem.id}}" class="a">
+        <navigator url="../goods/goods?id={{iitem.id}}" class="a">
             <image class="img" src="{{iitem.list_pic_url}}" background-size="cover"></image>
             <text class="name">{{iitem.name}}</text>
             <text class="price">￥{{iitem.retail_price}}</text>
-          </navigator>
-        </view>
+           </navigator>
+         </view>
       </block>
-      <view class="item item-b item-more">
-          <navigator url="/pages/category/category?id={{item.id}}" class="more-a">
-            <view class="txt">{{'更多'+item.name+'好物'}}</view>
-            <image class="icon" src="../../static/images/icon_go_more.png" background-size="cover"></image>
-          </navigator>
-      </view>
-    </view>
-  </view>
+       <view class="item item-b item-more">
+           <navigator url="/pages/category/category?id={{item.id}}" class="more-a">
+             <view class="txt">{{'更多'+item.name+'好物'}}</view>
+             <image class="icon" src="../../static/images/icon_go_more.png" background-size="cover"></image>
+           </navigator>
+       </view>
+     </view>
+   </view>  
+  <!-- 分类商品结束 -->
 </view>
 
 <!-- <button  bindtap="withdraw">提现</button>   -->

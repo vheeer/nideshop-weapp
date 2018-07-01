@@ -378,3 +378,28 @@
   width: 70rpx;
   height: 70rpx;
 }
+
+.item {
+  position: relative;
+  width: 50%;
+  float:left;
+  padding:2px;
+
+}
+.item image {
+  width: 100%;
+  height: 190px;
+}
+.category .item .name {
+  position:absolute;
+  color:white;
+  left:20px;
+  top:10px;
+  font-size:18px;
+  font-weight:bold;
+  z-index:10;
+}
+.index_img_1  image {
+  width: 100%;
+  height: auto;
+}

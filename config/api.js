@@ -1,10 +1,13 @@
 // const ApiRootUrl = 'http://127.0.0.1:8360/api/';
 const ApiRootUrl = 'https://www.yinmudianying.club/nideshop-mul-dev/api/';
 const mch = "jiaju";
-const title = "爱香美韩妆";
+const title = "";
+const shop_type = 2;
 module.exports = {
   title,
+  shop_type,
   IndexUrl: ApiRootUrl + 'index/index?mch=' + mch, //首页数据接口
+
   CatalogList: ApiRootUrl + 'catalog/index?mch=' + mch,  //分类目录全部分类数据接口
   CatalogCurrent: ApiRootUrl + 'catalog/current?mch=' + mch,  //分类目录当前分类数据接口
 

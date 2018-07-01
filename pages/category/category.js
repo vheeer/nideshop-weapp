@@ -1,6 +1,6 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
-const { title } = require('../../config/api.js');
+const { title, shop_type } = require('../../config/api.js');
 
 Page({
   data: {
@@ -38,7 +38,7 @@ Page({
   },
   getCategoryInfo: function () {
     let that = this;
-    util.request(api.GoodsCategory, { id: this.data.id })
+    util.request(api.GoodsCategory, { id: this.data.id, type: shop_type })
       .then(function (res) {
 
         if (res.errno == 0) {

@@ -1,15 +1,17 @@
 <view class="container">
     <view class="order-info">
         <view class="item-a">下单时间：{{orderInfo.add_time}}</view>
-        <view class="item-b">订单编号：{{orderInfo.order_sn}}</view>
+        <view class="item-a">订单编号：{{orderInfo.order_sn}}</view>
+        <view class="item-a">运单编号：{{orderInfo.express.logistic_code}}</view>
+
         <view class="item-c">
             <view class="l">实付：<text class="cost">￥{{orderInfo.actual_price}}</text></view>
             <view wx:if="{{!read_only}}" class="r">
                 <view class="btn" wx:if="{{handleOption.cancel}}" bindtap="cancelOrder">取消订单</view>
                 <view class="btn active" wx:if="{{handleOption.pay}}" bindtap="payOrder">去付款</view>
                 <view class="btn active" wx:if="{{handleOption.confirm}}" bindtap="confirmOrder">确认收货</view>
-                <view class="btn active" wx:if="{{handleOption.return}}" bindtap="returnOrder">退款</view> 
-                <view class="btn active" wx:if="{{handleOption.comment}}" bindtap="commentOrder">评论</view>
+                <view class="btn active" wx:if="{{handleOption.refund}}" bindtap="refundOrder">申请退款</view> 
+                <!-- <view class="btn active" wx:if="{{handleOption.comment}}" bindtap="commentOrder">评论</view> -->
             </view>
         </view>
     </view>
@@ -44,6 +46,10 @@
                 <text class="mobile">{{orderInfo.mobile}}</text>
             </view>
             <view class="b">{{orderInfo.full_region + orderInfo.address}}</view>
+            <view class="b">
+                <text class="label">留言：</text>
+                <text class="txt">{{orderInfo.postscript_consignor}}</text>
+            </view>
         </view>
         <view class="total">
             <view class="t">
@@ -60,4 +66,39 @@
             <text class="txt">￥{{orderInfo.actual_price}}</text>
         </view>
     </view>
+
+    <!-- 物流详情开始 -->
+    <view wx:if="{{orderInfo.express.logistic_code && orderInfo.express.logistic_code !== ''}}">
+        <view class="wraper">
+            <!-- 物流信息 -->
+            <view class="kuaidiInfo">
+                <view class="kuaidiIcon">
+                    <image src="https://www.yinmudianying.club/nideshop-mul/files/images/express.jpg"></image>
+                </view>
+                <view class="kuaidiDetails">
+                    <view>物流状态: <text class="satus">{{orderInfo.express.is_finish?'签收':'运送中'}}</text></view>
+                    <view class="company">承运来源: <text>{{orderInfo.express.shipper_name}}</text></view>
+                    <view class="number">运单编号: <text>{{orderInfo.express.logistic_code}}</text></view>
+                </view>
+            </view>
+            <!-- 物流跟踪 -->
+            <view class="kuaidi_follow">
+                <view class="follow_title">物流跟踪</view>
+                <view class="follow_satus">
+                    <block wx:for="{{orderInfo.express.traces}}" wx:item="item">
+                        <view class="follow_address">
+                            <view class="label {{index === 0?'default':''}}"></view>
+                            <view class="address {{index === 0?'default':''}}">{{item.content}}</view>
+                            <view class="date">{{item.datetime}}<!--text class="time">11:31:44</text--></view>
+                        </view>
+                    </block>
+                </view>
+                <!-- 卖家留言开始 -->
+                <view class="wraper">卖家留言: <text>{{orderInfo.postscript_consignor}}</text></view>
+                <!-- 卖家留言结束 -->
+            </view>
+        </view>
+    </view>
+    <!-- 物流详情结束 -->
+    
 </view>
