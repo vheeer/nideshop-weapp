@@ -1,6 +1,6 @@
 // const ApiRootUrl = 'http://127.0.0.1:8360/api/';
 const ApiRootUrl = 'https://www.yinmudianying.club/nideshop-mul-dev/api/';
-const mch = "jiaju";
+const mch = "haina";
 const title = "";
 const shop_type = 2;
 module.exports = {
@@ -78,5 +78,6 @@ module.exports = {
   DistributeApply: ApiRootUrl + 'distribute_apply/apply?mch=' + mch, //申请
 
   SetReferee: ApiRootUrl + 'user/setreferee?mch=' + mch, //设置推荐人
-  Group: ApiRootUrl + 'user/group?mch=' + mch //我的团队
+  Group: ApiRootUrl + 'user/group?mch=' + mch, //我的团队
+  Mobile: ApiRootUrl + 'user/number?mch=' + mch //获取手机号
 };

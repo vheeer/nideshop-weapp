@@ -1,6 +1,6 @@
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
-
+var backgrounds = require('../../../utils/abnor.js');
 
 
 var app = getApp();
@@ -55,6 +55,7 @@ Page({
   },
   onLoad: function (options) {
     this.getFootprintList();
+    this.setData({ backgrounds });
   },
   onReady: function () {
 

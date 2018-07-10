@@ -130,8 +130,12 @@ Page({
   },
   cut: function (event) {
     let that = this;
+    console.log("event", event);
     wx.saveImageToPhotosAlbum({
-      filePath: that.data.share_img_tmp
+      filePath: that.data.share_img_tmp,
+      complete: function(res) {
+        console.log("save img res: ", res);
+      }
     })
   },
   draw: function (code, share_background) {
@@ -149,21 +153,21 @@ Page({
     downloadFile(code)
       .then(({ tempFilePath }) => {
         code_temp_file_path = tempFilePath;
-        console.log(code_temp_file_path);
+        console.log("二维码临时路径", code_temp_file_path);
         return getImageInfo(tempFilePath)
       }).then(size => {
-        console.log("22222222222222222222222222", size);
+        console.log("二维码尺寸", size);
         code_size = { ...code_size, ...size };
         return downloadFile(share_background);
       })
       .then(({ tempFilePath }) => {
+        console.log("背景图临时路径", tempFilePath);
         share_temp_file_path = tempFilePath;
         return getImageInfo(tempFilePath);
       })
       .then(size => {
+        console.log("背景图尺寸", size);
         share_size = {...share_size, ...size};
-        
-
         
         console.log(share_temp_file_path);
         console.log(code_temp_file_path);
@@ -172,13 +176,19 @@ Page({
         {
           var context = wx.createCanvasContext('canvas');
           //背景图
-          context.drawImage(share_temp_file_path, 0, 0, share_size.width, share_size.height, 0, 0, W, share_size.height * W / share_size.width);
+          // 二维码位于中心
+          // context.drawImage(share_temp_file_path, 0, 0, share_size.width, share_size.height, 0, 0, W, share_size.height * W / share_size.width);
+          // 二维码位于左下角 
+          const CW = W;
+          const CH = share_size.height * W / share_size.width;
+          context.drawImage(share_temp_file_path, 0, 0, share_size.width, share_size.height, 0, 0, CW, CH);
           // 二维码图
           const w = W;
           const h = code_size.height * W / code_size.width;
-
-
-          context.drawImage(code_temp_file_path, 0, 0, code_size.width, code_size.height, w / 3, share_size.height * W / (share_size.width * 3), w/3, h/3);
+          // 二维码位于中心
+          // context.drawImage(code_temp_file_path, 0, 0, code_size.width, code_size.height, w / 3, share_size.height * W / (share_size.width * 3), w/3, h/3);
+          // 二维码位于左下角 
+          context.drawImage(code_temp_file_path, 0, 0, code_size.width, code_size.height, CW*(12/100), CH*(77/100), CW*(20/100), CW*(20/100));
 
           //二维码上文字
           context.setFontSize(30);

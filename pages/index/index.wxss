@@ -398,6 +398,8 @@
   font-size:18px;
   font-weight:bold;
   z-index:10;
+  background-color:red;
+  box-shadow:0px 0px 2px 2px red;
 }
 .index_img_1  image {
   width: 100%;

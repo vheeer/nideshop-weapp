@@ -1,5 +1,11 @@
 <view class="container">
     <view class="orders">
+
+        <!-- 没有订单背景图 -->
+        <view wx:if="{{orderList.length === 0}}" class="no_data_box">
+            <image class="no_data" mode="widthFix" src="{{backgrounds.ORDER.image}}" />
+            <view class="no_title">{{backgrounds.ORDER.title}}</view>
+        </view>
         <navigator url="../orderDetail/orderDetail?id={{item.id}}" class="order" wx:for="{{orderList}}" wx:key="{{item.id}}">
             <view class="h">
                 <view class="l">订单编号：{{item.order_sn}}</view>

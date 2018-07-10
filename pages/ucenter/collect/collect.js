@@ -1,5 +1,6 @@
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
+var backgrounds = require('../../../utils/abnor.js');
 
 var app = getApp();
 
@@ -14,7 +15,8 @@ Page({
       if (res.errno === 0) {
         console.log(res.data);
         that.setData({
-          collectList: res.data.data
+          collectList: res.data.data,
+          backgrounds
         });
       }
     });

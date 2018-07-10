@@ -3,8 +3,15 @@
     <image class="avatar" src="{{userInfo.avatar}}"></image>
     <view class="info">
       <text class="name">{{userInfo.nickname}}</text>
-      <text class="level">{{userInfo.username}}</text>
-       <button open-type="getUserInfo" class="getUserInfo" plain="{{true}}" hover-start-time="0" hover-stay-time="0"  bindgetuserinfo="bindgetuserinfo">点击这里登陆</button>
+      <!-- <text class="level">{{userInfo.username}}</text> -->
+       <!-- <button open-type="getUserInfo" class="getUserInfo" plain="{{true}}" hover-start-time="0" hover-stay-time="0"  bindgetuserinfo="bindgetuserinfo">点击这里登陆</button> -->
+        <view wx:if="{{!userInfo.mobile}}">
+          <button class="mobile" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击这里绑定您的手机号</button>
+        </view>
+        
+        <view wx:if="{{userInfo.mobile}}" class="mobile_text">
+          <text>{{userInfo.mobile}}</text>
+        </view>
     </view>
   </view>
 
@@ -15,18 +22,18 @@
         <text class="txt">我的订单</text>
       </navigator>
     </view>
-    <view class="item">
+  <!--   <view class="item">
       <navigator url="/pages/ucenter/coupon/coupon" class="a">
         <text class="icon coupon"></text>
         <text class="txt">优惠券</text>
       </navigator>
-    </view>
-    <view class="item no-border">
+    </view> -->
+    <!-- <view class="item no-border">
       <navigator url="url" class="a">
         <text class="icon gift"></text>
         <text class="txt">礼品卡</text>
       </navigator>
-    </view>
+    </view> -->
     <view class="item">
       <navigator url="/pages/ucenter/collect/collect" class="a">
         <text class="icon address"></text>
@@ -39,43 +46,37 @@
         <text class="txt">我的足迹</text>
       </navigator>
     </view>
-    <view class="item no-border">
+    <!-- <view class="item no-border">
       <navigator url="url" class="a">
         <text class="icon kefu"></text>
         <text class="txt">会员福利</text>
       </navigator>
-    </view>
+    </view> -->
     <view class="item">
       <navigator url="../address/address" class="a">
         <text class="icon address"></text>
         <text class="txt">地址管理</text>
       </navigator>
     </view>
-    <view class="item">
+    <!-- <view class="item">
       <navigator url="url" class="a">
         <text class="icon security"></text>
         <text class="txt">账号安全</text>
       </navigator>
+    </view> -->
+    <view class="item" bindtap="contect">
+      <button 
+          type="default-light" 
+          session-from="weapp" 
+          open-type="contact"
+          class="a">
+        <navigator url="url">
+          <text class="icon kefu"></text>
+          <text class="txt">在线客服</text>
+        </navigator>
+      </button>
     </view>
-    <view class="item no-border">
-      <navigator url="url" class="a">
-        <text class="icon kefu"></text>
-        <text class="txt">联系客服</text>
-      </navigator>
-    </view>
-    <view class="item item-bottom">
-      <navigator url="url" class="a">
-        <text class="icon help"></text>
-        <text class="txt">帮助中心</text>
-      </navigator>
-    </view>
-    <view class="item item-bottom">
-      <navigator url="/pages/ucenter/feedback/feedback" class="a">
-        <text class="icon feedback"></text>
-        <text class="txt">意见反馈</text>
-      </navigator>
-    </view>
-    <view class="item item-bottom">
+    <view class="item">
       <navigator url="/pages/ucenter/distribute/index/index" class="a">
         <text class="icon feedback"></text>
         <text class="txt">分销</text>

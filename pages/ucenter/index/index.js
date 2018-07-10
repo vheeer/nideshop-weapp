@@ -15,7 +15,7 @@ Page({
   onReady: function () {
 
   },
-  onShow: function () {
+  onShow: function () { 
 
     let userInfo = wx.getStorageSync('userInfo');
     let token = wx.getStorageSync('token');
@@ -68,5 +68,31 @@ Page({
         }
       }
     })
-  }
+  },
+  getPhoneNumber(e){
+    const that = this;
+    const app = getApp();
+    console.log("e.detail.errMsg", e.detail.errMsg);
+    console.log("e.detail.iv", e.detail.iv);
+    console.log("e.detail.encryptedData", e.detail.encryptedData);
+    console.log("app.globalData", app.globalData);
+
+    const { iv, encryptedData } = e.detail;
+    if(iv && encryptedData)
+    {
+      util.request(api.Mobile, {
+        iv, 
+        encryptedData
+      }, "POST")
+      .then(function (res) {
+        if (res.errno === 0) {
+            console.log(res.data);
+            const userInfo = wx.getStorageSync("userInfo");
+            const new_userInfo = Object.assign(userInfo, { mobile: res.data });
+            wx.setStorageSync("userInfo", new_userInfo);
+            that.setData({ userInfo: new_userInfo });
+        }
+      });
+    }
+  },
 })

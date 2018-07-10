@@ -17,3 +17,17 @@ view,text{
   font-size: 29rpx;
   color: #333;
 }
+/*没有内容时的图片*/
+.no_data_box {
+	position: absolute;
+    width:100%;
+    top:50%;
+    margin-top:-198px;
+}
+.no_data {
+    width: 100%;
+}
+.no_title {
+    text-align:center;
+    font-size:16px;
+}

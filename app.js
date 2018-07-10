@@ -15,7 +15,8 @@ function goLogin(){
 }
 App({
   onLaunch: function (options) {
-      
+      console.log("App onLaunch options", options);
+      const that = this;
       const { referee: referee_2 } = options.query; //分享好友的推荐人
       let referee_3; //发分享码的推荐人
       const scene = decodeURIComponent(options.scene); 
@@ -32,29 +33,21 @@ App({
       console.log("referee_3", referee_3);
       console.log("finally referee_inter", referee_inter);
 
-    user.loginByWeixin().then(res => {
-      this.globalData.userInfo = res.data.userInfo;
-      this.globalData.token = res.data.token;
-
-      const { id, referee: referee_old } = res.data.userInfo;
-      console.log("referee_old", referee_old);
-      // 如果是第一次登陆（referee是null）
-      if (referee_old === null){
-        util.request(api.SetReferee, {
-          referee: referee_inter
-        }, "POST")
-        .then(function (res) {
-          console.log("设置第一次登录的referee res: ", res);
-        });
-
-        
-        wx.showToast({
-          title: "第一次登陆"
-        })
-      }else{
-
-      }
-
+    user.loginByWeixin(this, referee_inter).then(res => {
+      // this.globalData.userInfo = res.data.userInfo;
+      // this.globalData.token = res.data.token;
+      // console.log("loginByWeixin", res.data.userInfo);
+      // const { id, referee: referee_old } = res.data.userInfo;
+      // console.log("referee_old", referee_old);
+      // // 如果是第一次登陆（referee是null）
+      // if (referee_old === null){
+      //   util.request(api.SetReferee, {
+      //     referee: referee_inter
+      //   }, "POST")
+      //   .then(function (res) {
+      //     console.log("设置第一次登录的referee res: ", res);
+      //   });
+      // }
     }).catch((err) => {
       console.log(err);
     });

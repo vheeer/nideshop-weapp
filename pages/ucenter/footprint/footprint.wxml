@@ -1,5 +1,11 @@
 <view class="container">
   <view class="footprint">
+
+    <!-- 没有足迹背景图 -->
+    <view wx:if="{{footprintList.length === 0}}" class="no_data_box">
+        <image class="no_data" mode="widthFix" src="{{backgrounds.FOOTPRINT.image}}" />
+        <view class="no_title">{{backgrounds.FOOTPRINT.title}}</view>
+    </view>
     <view class="day-item" wx:for="{{footprintList}}" wx:key="{{index}}">
       <view class="day-hd">{{item[0].add_time}}</view>
       <view class="day-list">

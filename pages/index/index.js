@@ -18,11 +18,12 @@ Page({
     others: [],
     notice: ""
   },
-  onShareAppMessage: res => ({
+  onShareAppMessage: function(res){
+    return {
       title,
-      path: '/pages/index/index?share_user_id=' + this.data.userInfo.id
-  }),
-
+      path: '/pages/index/index?referee=' + app.globalData.userInfo.id
+    }
+  },
   getIndexData: function () {
     let that = this;
     util.request(api.IndexUrl + "&type=" + shop_type).then(function (res) {
