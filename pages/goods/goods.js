@@ -51,8 +51,7 @@ Page({
           userHasCollect: res.data.userHasCollect,
           others: app.globalData.others
         });
-
-
+        
         // 运费
         const { is_free_delivery, freight: goods_freight, retail_price } = res.data.info;
         let freightPrice;

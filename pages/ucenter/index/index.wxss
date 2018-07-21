@@ -160,7 +160,11 @@ page{
 }
 .mobile {
     height:45px;
+<<<<<<< HEAD
     /* width:246px; */
+=======
+    width:246px;
+>>>>>>> 532245ec59303ebbf22c6ee246314011dc4e0618
     margin-left:0px;
     margin-right:0px;
     padding-left:0px;
