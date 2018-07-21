@@ -1,5 +1,10 @@
 <view class="container">
   <view class="collect-list">
+    <!-- 没有足迹背景图 -->
+    <view wx:if="{{collectList.length === 0}}" class="no_data_box">
+        <image class="no_data" mode="widthFix" src="{{backgrounds.DATA.image}}" />
+        <view class="no_title">{{backgrounds.DATA.title}}</view>
+    </view>
     <view class="item" bindtap="openGoods"  bindtouchstart="touchStart" bindtouchend="touchEnd" wx:for="{{collectList}}" wx:key="{{item.id}}" data-index="{{index}}">
       <image class="img" src="{{item.list_pic_url}}"></image>
       <view class="info">

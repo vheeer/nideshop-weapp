@@ -1,5 +1,6 @@
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
+var backgrounds = require('../../../utils/abnor.js');
 const app = getApp();
 Page({
   data:{
@@ -23,6 +24,8 @@ Page({
         }
       })
     }
+    console.log("背景图： ", backgrounds);
+    this.setData({ backgrounds });
   },
   getOrderList(){
     const that = this;

@@ -5,8 +5,8 @@
       <image class="avatar" src="{{userInfo.avatar}}"></image>
       <view class="info">
         <text class="name">{{userInfo.nickname}}</text>
-        <text wx:if="{{userInfo.referee}}" class="level">推荐人：{{userInfo.referee}}</text>
-         <button wx:if="{{!userInfo.referee}}" open-type="getUserInfo" class="getUserInfo" plain="{{true}}" hover-start-time="0" hover-stay-time="0"  bindgetuserinfo="bindgetuserinfo">点击这里登陆</button>
+        <text wx:if="{{referee_user.nickname !== null || referee_user.nickname !== undefined}}" class="level">推荐人：{{referee_user.nickname?referee_user.nickname:"总店"}}</text>
+         <!-- <button wx:if="{{!userInfo.referee}}" open-type="getUserInfo" class="getUserInfo" plain="{{true}}" hover-start-time="0" hover-stay-time="0"  bindgetuserinfo="bindgetuserinfo">点击这里登陆</button> -->
       </view>
     </view>
     <!-- 佣金 -->

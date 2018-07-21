@@ -151,12 +151,43 @@ page{
     font-size: 30rpx;
 }
 .getUserInfo {
--width:70px;
-border:none;
-top:-61px;
-position:relative;
-left:-13px;
-height:80px;
-
-  
+    -width:70px;
+    border:none;
+    top:-61px;
+    position:relative;
+    left:-13px;
+    height:80px; 
 }
+.mobile {
+    height:45px;
+    /* width:246px; */
+    margin-left:0px;
+    margin-right:0px;
+    padding-left:0px;
+    padding-right:0px;
+    font-size:17px;
+    background-color:#333;
+    color:white;
+    text-align:left;
+}
+.mobile_text {
+    margin-top:14px;
+}
+.mobile_text text {
+    font-size:17px;
+    color: white;
+}
+button.a {
+    margin:0 auto;
+    height:45px;
+    width:45px;
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+    padding-top:3px;
+    background-color:white;
+}
+button::after {
+  border: 0;
+} 

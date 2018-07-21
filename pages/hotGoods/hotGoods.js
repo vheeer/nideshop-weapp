@@ -105,10 +105,16 @@ Page({
     this.getData();
 
   },
-  onShareAppMessage: function (res) {
+  onShareAppMessage_old: function (res) {
     const { others } = this.data;
     return {
       title: title + '-' + others[0].hot_title
     }
-  }
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title,
+      path: '/pages/index/index?referee=' + app.globalData.userInfo.id
+    }
+  },
 })

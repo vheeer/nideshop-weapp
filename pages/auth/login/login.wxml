@@ -20,8 +20,8 @@
 		</view> -->
 
         <!-- 使用微信号直接登录 -->
-        <view>使用微信号直接登录</view>
-
+        <!-- <view>使用微信号直接登录</view> -->
+        
     	<button open-type="getUserInfo" type="default" class="login-btn" bindgetuserinfo="startLogin">登录</button>
 
 <!--     	<view class="form-item-text">

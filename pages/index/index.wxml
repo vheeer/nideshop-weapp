@@ -40,8 +40,8 @@
             <image class="img" src="{{item.new_pic_url}}" mode="aspectFill"></image>
             <view class="mt">
               <text class="brand">{{item.name}}</text>
-              <text class="price">{{item.floor_price}}</text>
-              <text class="unit">元起</text>
+              <!-- <text class="price">{{item.floor_price}}</text> -->
+              <!-- <text class="unit">元起</text> -->
             </view>
           </view>
         </navigator>
@@ -95,7 +95,7 @@
   </view> -->
   <!-- 热品结束 -->
   <!-- 专题开始 -->
-  <view class="a-section a-topic" wx:if="{{topics.length > 0}}">
+<!--   <view class="a-section a-topic" wx:if="{{topics.length > 0}}">
     <view class="h">
       <view>
       <navigator url="../topic/topic" open-type="switchTab">
@@ -117,7 +117,7 @@
         </view>
       </scroll-view>
     </view>
-  </view>
+  </view> -->
   <!-- 专题结束 -->
   <!-- 分类开始 -->
   <view class="b category">

@@ -26,12 +26,19 @@ Page({
     hasCollectImage: "/static/images/icon_collect_checked.png",
     collectBackImage: "/static/images/icon_collect.png",
     others: app.globalData.others,
-    postscript: ""
+    postscript: "",
+    swiperAutoPlay: true
   },
   getGoodsInfo: function () {
     let that = this;
     util.request(api.GoodsDetail, { id: that.data.id }).then(function (res) {
       if (res.errno === 0) {
+        // 获取、添加轮播图格式
+        res.data.gallery = res.data.gallery.map(item => {
+          const type = item.img_url.split('.').pop();
+          return { type, ...item }
+        });
+
         that.setData({
           goods: res.data.info,
           gallery: res.data.gallery,
@@ -44,7 +51,28 @@ Page({
           userHasCollect: res.data.userHasCollect,
           others: app.globalData.others
         });
-        
+
+
+        // 运费
+        const { is_free_delivery, freight: goods_freight, retail_price } = res.data.info;
+        let freightPrice;
+        if(is_free_delivery === 1){
+          freightPrice = 0;
+        }else{
+          const { freight } = app.globalData.others[0];
+          if(typeof goods_freight === "number"){
+            freightPrice = goods_freight;
+          }else{
+            freightPrice = freight;
+          }
+        }
+        // 默认商品价格
+        const default_price_text = parseFloat((retail_price + freightPrice).toFixed(2));
+
+        that.setData({
+          freightPrice,
+          default_price_text
+        });
 
         if (res.data.userHasCollect == 1) {
           that.setData({
@@ -101,9 +129,9 @@ Page({
     }
     this.setData({
       'specificationList': _specificationList
-    });
-    //重新计算spec改变后的信息
-    this.changeSpecInfo();
+    },this.changeSpecInfo());//重新计算spec改变后的信息
+    
+    
 
     //重新计算哪些值不可以点击
   },
@@ -151,24 +179,44 @@ Page({
   },
   changeSpecInfo: function () {
     let checkedNameValue = this.getCheckedSpecValue();
-
+    console.log("修改规格信息： ", checkedNameValue);
+    const valueIds = [];
+    const valueTexts = [];
     //设置选择的信息
-    let checkedValue = checkedNameValue.filter(function (v) {
+    checkedNameValue.filter(function (v) {
       if (v.valueId != 0) {
         return true;
       } else {
         return false;
       }
-    }).map(function (v) {
-      return v.valueText;
+    }).forEach(function (v) {
+      valueIds.push(v.valueId);
+      valueTexts.push(v.valueText);
     });
-    if (checkedValue.length > 0) {
+
+    //根据选中的规格，判断是否有对应的sku信息
+    const checkedSpecKey = this.getCheckedSpecKey();
+    console.log("选中的key", checkedSpecKey);
+    let checkedProduct = this.getCheckedProductItem(checkedSpecKey);
+    console.log("选中的产品", checkedProduct);
+    //计算价格
+    let product_price;
+    if(checkedProduct.length > 0)
+      product_price = parseFloat((this.data.freightPrice + checkedProduct[0].retail_price).toFixed(2));
+    else
+      product_price = null;
+    if (valueTexts.length > 0) {
       this.setData({
-        'checkedSpecText': checkedValue.join('　')
+        checkedProduct,
+        product_price,
+        checkedSpecText: valueTexts.join('　'),
+        checkedSpecIds: valueIds
       });
     } else {
       this.setData({
-        'checkedSpecText': '请选择规格数量'
+        checkedProduct,
+        product_price,
+        checkedSpecText: '请选择规格数量'
       });
     }
 
@@ -278,22 +326,35 @@ Page({
         collectBackImage: "/static/images/detail_back.png"
       });
     } else {
-
+      function wxShowModal(content){
+        wx.showModal({
+          title: "提示",
+          content,
+          showCancel: false
+        });
+      }
       //提示选择完整规格
       if (!this.isCheckedAllSpec()) {
+        console.log("请选择完整规格");
+        wxShowModal("请选择完整规格");
         return false;
       }
 
       //根据选中的规格，判断是否有对应的sku信息
-      let checkedProduct = this.getCheckedProductItem(this.getCheckedSpecKey());
+      const checkedSpecKey = this.getCheckedSpecKey();
+      console.log("选中的key", checkedSpecKey);
+      let checkedProduct = this.getCheckedProductItem(checkedSpecKey);
+      console.log("选中的产品", checkedProduct);
       if (!checkedProduct || checkedProduct.length <= 0) {
         //找不到对应的product信息，提示没有库存
+        wxShowModal("没有相应产品信息");
         return false;
       }
 
       //验证库存
       if (checkedProduct.goods_number < this.data.number) {
         //找不到对应的product信息，提示没有库存
+        wxShowModal("没有库存");
         return false;
       }
 
@@ -400,10 +461,15 @@ Page({
       postscript
     });
   },
+  vplay: function(e) {
+    this.setData({
+      swiperAutoPlay: false
+    });
+  },
   onShareAppMessage: function (res) {
     const { goods } = this.data;
     return {
-      title: title + '-' + goods.name
+      path: "/pages/index/index"
     }
   }
 })

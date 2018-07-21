@@ -6,7 +6,7 @@
   height: 750rpx;
 }
 
-.goodsimgs image{
+.goodsimgs image, .goodsimgs video {
   width: 750rpx;
   height: 750rpx;
 }
@@ -255,6 +255,11 @@
     line-height: 45.8rpx;
     font-size: 29rpx;
     margin-bottom: 24rpx;
+}
+.comments .content img{
+    display: block;
+    margin: 0;
+    border: 0;
 }
 
 .comments .imgs{
