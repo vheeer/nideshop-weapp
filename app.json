@@ -10,6 +10,7 @@
     "pages/ucenter/distribute/order/order",
     "pages/ucenter/distribute/cash_record/cash_record",
     "pages/catalog/catalog",
+    "pages/notes/notes",
     "pages/newGoods/newGoods",
     "pages/hotGoods/hotGoods",
     "pages/ucenter/address/address",
@@ -31,7 +32,10 @@
     "pages/topicComment/topicComment",
     "pages/brand/brand",
     "pages/brandDetail/brandDetail",
+    "pages/tag/tag",
+    "pages/tagDetail/tagDetail",
     "pages/search/search",
+    "pages/category/category",
     "pages/cart/cart",
     "pages/shopping/checkout/checkout",
     "pages/shopping/address/address",
@@ -62,13 +66,13 @@
         "pagePath": "pages/topic/topic",
         "iconPath": "static/images/ic_menu_topic_nor.png",
         "selectedIconPath": "static/images/ic_menu_topic_pressed.png",
-        "text": "专题"
+        "text": "新品"
       },
       {
-        "pagePath": "pages/catalog/catalog",
+        "pagePath": "pages/notes/notes",
         "iconPath": "static/images/ic_menu_sort_nor.png",
         "selectedIconPath": "static/images/ic_menu_sort_pressed.png",
-        "text": "分类"
+        "text": "购物须知"
       },
       {
         "pagePath": "pages/cart/cart",

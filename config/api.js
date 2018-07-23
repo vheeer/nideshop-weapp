@@ -24,6 +24,9 @@ module.exports = {
   BrandList: ApiRootUrl + 'brand/list?mch=' + mch,  //品牌列表
   BrandDetail: ApiRootUrl + 'brand/detail?mch=' + mch,  //品牌详情
 
+  TagList: ApiRootUrl + 'tag/list?mch=' + mch,  //标签列表
+  TagDetail: ApiRootUrl + 'tag/detail?mch=' + mch,  //标签详情
+
   CartList: ApiRootUrl + 'cart/index?mch=' + mch, //获取购物车的数据
   CartAdd: ApiRootUrl + 'cart/add?mch=' + mch, // 添加商品到购物车
   CartUpdate: ApiRootUrl + 'cart/update?mch=' + mch, // 更新购物车的商品
