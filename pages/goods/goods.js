@@ -27,7 +27,18 @@ Page({
     collectBackImage: "/static/images/icon_collect.png",
     others: app.globalData.others,
     postscript: "",
-    swiperAutoPlay: true
+    swiperAutoPlay: true,
+    play: false
+  },
+  play: function() {
+    this.setData({
+      play: true
+    });
+  },
+  end: function() {
+    this.setData({
+      play: false
+    })
   },
   getGoodsInfo: function () {
     let that = this;

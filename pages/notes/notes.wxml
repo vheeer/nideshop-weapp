@@ -1,0 +1,5 @@
+<!-- 商品详情开始 -->
+<view class="content">
+  <rich-text nodes="{{content}}" bindtap="tap"></rich-text>
+</view>
+<!-- 商品详情结束 -->

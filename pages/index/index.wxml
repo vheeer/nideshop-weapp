@@ -26,8 +26,16 @@
     </navigator>
   </view>
   <!-- 频道结束 -->
+  <!-- 标签开始 -->
+  <view class="m-menu">
+    <navigator  class="item" url="/pages/tagDetail/tagDetail?id={{item.id}}" wx:for="{{tags}}" wx:key="{{item.id}}">
+      <image src="{{item.list_pic_url}}" mode="widthFix" background-size="cover"></image>
+      <!-- <text>{{item.name}}</text> -->
+    </navigator>
+  </view>
+  <!-- 标签结束 -->
   <!-- 品牌开始 -->
-  <view wx:if="{{brands.length > 0}}" class="a-section a-brand">
+  <!-- <view wx:if="{{brands.length > 0}}" class="a-section a-brand">
     <view class="h">
       <navigator url="../brand/brand">
         <text class="txt">{{others[0].brand_title}}</text>
@@ -40,14 +48,14 @@
             <image class="img" src="{{item.new_pic_url}}" mode="aspectFill"></image>
             <view class="mt">
               <text class="brand">{{item.name}}</text>
-              <!-- <text class="price">{{item.floor_price}}</text> -->
-              <!-- <text class="unit">元起</text> -->
+              <text class="price">{{item.floor_price}}</text>
+              <text class="unit">元起</text>
             </view>
           </view>
         </navigator>
       </view>
     </view>
-  </view>
+  </view> -->
   <!-- 品牌结束 -->
   <!-- 新品开始 -->
   <!-- <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">

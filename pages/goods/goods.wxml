@@ -1,20 +1,28 @@
 <scroll-view class="container" scroll-y="true">
   <view wx:if="{{!openAttr}}">
-    <swiper class="goodsimgs" indicator-dots="true" autoplay="{{swiperAutoPlay}}" interval="3000" duration="1000">
+    <swiper wx:if="{{!play}}" class="goodsimgs" indicator-dots="true" autoplay="{{swiperAutoPlay}}" interval="3000" duration="1000">
       <swiper-item wx:for="{{gallery}}" wx:key="{{item.id}}">
-        <image wx-if="{{item.type === 'jpg' || item.type === 'jpeg' || item.type === 'png' || item.type === 'gif'}}" src="{{item.img_url}}" background-size="cover"></image>
-        <video 
-          wx-else
-          id="myVideo" 
-          src="{{item.img_url}}" 
-          danmu-list="{{danmuList}}" 
-          enable-danmu 
-          danmu-btn 
-          controls
-          bindplay="vplay"
-        />
+        <image wx:if="{{(item.type === 'jpg' || item.type === 'jpeg' || item.type === 'png' || item.type === 'gif')}}" src="{{item.img_url}}" background-size="cover"></image>
+        <view wx:else class="play_box" catchtap="play">
+          <image 
+            class="play_btn"
+            mode="aspectFit"
+            src="/static/images/play.png"
+          />
+        </view>
       </swiper-item>
     </swiper>
+    <view wx:if="{{play}}" class="video_box" catchtap="play">
+      <video 
+        id="myVideo" 
+        src="https://nideshop-admin-dva-1256171234.cos.ap-beijing.myqcloud.com/haina/upload/images/d4016626-718a-416e-8d6e-de44ea624f31.mp4" 
+        enable-danmu 
+        danmu-btn 
+        controls="true"
+        bindplay="vplay"
+        bindended="end"
+      />
+    </view>
     <!-- 服务 -->
     <view wx:if="{{others[0].service_policy_1 !== ''&&others[0].service_policy_2 !== ''&&others[0].service_policy_3 !== ''}}" class="service-policy">
       <view wx:if="{{others[0]&&others[0].service_policy_1&&others[0].service_policy_1 != ''}}" class="item">{{others[0].service_policy_1}}</view>
@@ -81,13 +89,13 @@
       </view>
     </view>
     <!-- 商品详情开始 -->
-    <!-- <view class="detail">
-      <import src="../../lib/wxParse/wxParse.wxml" />
+    <import src="../../lib/wxParse/wxParse.wxml" />
+    <view class="detail">
       <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
-    </view> -->
-    <view class="content">
-      <rich-text nodes="{{goods.goods_desc}}" bindtap="tap"></rich-text>
     </view>
+<!--     <view class="content">
+      <rich-text nodes="{{goods.goods_desc}}" bindtap="tap"></rich-text>
+    </view> -->
     <!-- 商品详情结束 -->
 
     <view wx:if="{{issueList && issueList.length > 0}}" class="common-problem">
