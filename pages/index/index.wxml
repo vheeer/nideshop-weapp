@@ -27,12 +27,12 @@
   </view>
   <!-- 频道结束 -->
   <!-- 标签开始 -->
-  <view class="m-menu">
+  <!-- <view class="m-menu">
     <navigator  class="item" url="/pages/tagDetail/tagDetail?id={{item.id}}" wx:for="{{tags}}" wx:key="{{item.id}}">
       <image src="{{item.list_pic_url}}" mode="widthFix" background-size="cover"></image>
-      <!-- <text>{{item.name}}</text> -->
+      <text>{{item.name}}</text>
     </navigator>
-  </view>
+  </view> -->
   <!-- 标签结束 -->
   <!-- 品牌开始 -->
   <!-- <view wx:if="{{brands.length > 0}}" class="a-section a-brand">
