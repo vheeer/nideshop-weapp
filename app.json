@@ -63,16 +63,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/topic/topic",
+        "pagePath": "pages/notes/notes",
         "iconPath": "static/images/ic_menu_topic_nor.png",
         "selectedIconPath": "static/images/ic_menu_topic_pressed.png",
-        "text": "新品"
-      },
-      {
-        "pagePath": "pages/notes/notes",
-        "iconPath": "static/images/ic_menu_sort_nor.png",
-        "selectedIconPath": "static/images/ic_menu_sort_pressed.png",
-        "text": "购物须知"
+        "text": "活动"
       },
       {
         "pagePath": "pages/cart/cart",

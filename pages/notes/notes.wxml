@@ -1,5 +1,9 @@
 <!-- 商品详情开始 -->
 <view class="content">
-  <rich-text nodes="{{content}}" bindtap="tap"></rich-text>
+  <!-- <rich-text nodes="{{content}}" bindtap="tap"></rich-text> -->
+  <import src="../../lib/wxParse/wxParse.wxml" />
+  <view class="detail">
+    <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
+  </view>
 </view>
 <!-- 商品详情结束 -->

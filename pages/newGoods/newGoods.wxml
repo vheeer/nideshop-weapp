@@ -4,8 +4,8 @@
       <image class="img" src="{{bannerInfo.img_url}}" background-size="cover"></image>
       <view class="info-box">
         <view class="info">
-          <text class="txt">{{bannerInfo.name}}</text>
-          <text class="line"></text>
+          <!-- <text class="txt">{{bannerInfo.name}}</text> -->
+          <!-- <text class="line"></text> -->
         </view>
       </view>
     </view>

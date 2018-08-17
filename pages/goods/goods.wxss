@@ -546,6 +546,18 @@ swiper video {
     height: 100rpx;
     display: flex;
     background: #fff;
+    scroll-view: scroll;
+}
+
+.bottom-btn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 750rpx;
+  height: 100rpx;
+  display: flex;
+  background: #fff;
 }
 
 .bottom-btn .l{

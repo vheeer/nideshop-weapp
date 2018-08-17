@@ -1,4 +1,4 @@
-<scroll-view class="container" scroll-y="true">
+<view class="container" scroll-y="true">
   <view wx:if="{{!openAttr}}">
     <swiper wx:if="{{!play}}" class="goodsimgs" indicator-dots="true" autoplay="{{swiperAutoPlay}}" interval="3000" duration="1000">
       <swiper-item wx:for="{{gallery}}" wx:key="{{item.id}}">
@@ -166,7 +166,9 @@
        </view>
     </view>
   </view>
+</view>
 
+  <!-- 底边栏开始 -->
   <view class="bottom-btn">
     <!-- 收藏 -->
     <view class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect">
@@ -188,4 +190,4 @@
     <view class="c" bindtap='buyNow'>立即购买</view>
     <view class="r" bindtap="addToCart">加入购物车</view>
   </view>
-</scroll-view>
+  <!-- 底边栏结束 -->

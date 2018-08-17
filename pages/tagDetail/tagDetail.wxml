@@ -4,8 +4,8 @@
             <image class="img" src="{{tag.app_list_pic_url}}" background-size="cover"></image>
             <view class="info-box">
                 <view class="info">
-                    <text class="txt">{{tag.name}}</text>
-                    <text wx:if="{{tag.name}}" class="line"></text>
+                    <!-- <text class="txt">{{tag.name}}</text>
+                    <text wx:if="{{tag.name}}" class="line"></text> -->
                 </view>
             </view>
         </view>

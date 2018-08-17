@@ -11,15 +11,15 @@ Page({
     hotGoods: [],
     topics: [],
     brands: [],
-    tags: [],
     floorCategorys: [],
     floorGoods: [],
     banner: [],
     channel: [],
     others: [],
+    tags: [],
     notice: ""
   },
-  onShareAppMessage: function(res){
+  onShareAppMessage: function (res) {
     return {
       title,
       path: '/pages/index/index?referee=' + app.globalData.userInfo.id
@@ -28,24 +28,48 @@ Page({
   getIndexData: function () {
     let that = this;
     util.request(api.IndexUrl + "&type=" + shop_type).then(function (res) {
+      // 分类整理
+      let cates = res.data['firstCategoryList'];
+      const newCates = [];
+      cates.forEach(cate => {
+        if (cate.name === '饮水机') {
+          return;
+        }
+        newCates.push(cate);
+      });
+      res.data['firstCategoryList'] = newCates;
+      // 标签整理
+      let tags = res.data['tagList'];
+      const newTags = [];
+      tags.forEach(cate => {
+        if (cate.name === '新品净水器') {
+          cate.link = '../newGoods/newGoods';
+        } else if (cate.name === '热卖净水器') {
+          cate.link = '../hotGoods/hotGoods';
+        } else {
+          cate.link = '/pages/tagDetail/tagDetail?id=' + cate.id;
+        }
+        newTags.push(cate);
+      });
+      res.data['tagList'] = newTags;
       if (res.errno === 0) {
         that.setData({
           newGoods: res.data.newGoodsList,
           hotGoods: res.data.hotGoodsList,
           topics: res.data.topicList,
           brands: res.data.brandList,
-          tags: res.data.tagList,
           categoryGoodsList: res.data.categoryGoodsList,
           firstCategoryList: res.data.firstCategoryList,
           banner: res.data.banner,
           channel: res.data.channel,
-          others: res.data.others
+          others: res.data.others,
+          tags: res.data.tagList
         });
         app.globalData.others = res.data.others;
       }
     });
   },
-  withdraw: function() {
+  withdraw: function () {
     // 提现
     // util.request(api.c).then(function (res) {
     //   console.log(res);

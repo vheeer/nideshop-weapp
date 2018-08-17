@@ -14,26 +14,45 @@
   <wxc-notice scroll="{{true}}" close="{{true}}" bg-color="#ff9300" bg-rgba="rgba(255, 147, 0, 0)" show-icon="{{true}}" notice="{{others[0].notice}}"></wxc-notice>
   <!-- 广播结束 -->
   <!-- 插图一开始 -->
-  <view class="index_img_1">
+  <view wx:if="{{others[0].index_img_1 && others[0].index_img_1 !== ''}}" class="index_img_1">
     <image mode="widthFix" src="{{others[0].index_img_1}}" />
   </view>
   <!-- 插图一结束 -->
   <!-- 频道开始 -->
   <view wx:if="{{channel.length !== 0}}" class="m-menu">
-    <navigator  class="item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
+    <navigator class="item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
       <image src="{{item.icon_url}}" background-size="cover"></image>
       <text>{{item.name}}</text>
     </navigator>
   </view>
-  <!-- 频道结束 -->
+  <!-- 频道结束 -->  
   <!-- 标签开始 -->
-  <!-- <view class="m-menu">
-    <navigator  class="item" url="/pages/tagDetail/tagDetail?id={{item.id}}" wx:for="{{tags}}" wx:key="{{item.id}}">
-      <image src="{{item.list_pic_url}}" mode="widthFix" background-size="cover"></image>
-      <text>{{item.name}}</text>
-    </navigator>
-  </view> -->
+  <view class="m-menu tags">
+    <block wx:for="{{tags}}" wx:key="{{item.id}}">
+      <navigator class="item" url="{{item.link}}" >
+        <view>
+          <image src="{{item.list_pic_url}}" mode="widthFix" background-size="cover"></image>
+        </view>
+        <text>{{item.name}}</text>
+      </navigator>
+    </block>
+  </view>
   <!-- 标签结束 -->
+  <!-- 分类开始 -->
+  <view class="b category">
+    <view class="h">
+      分类
+    </view>
+    <block wx:for="{{firstCategoryList}}" wx:for-index="index" wx:key="{{item}}">
+      <view class="item {{index % 2 == 0 ? '' : 'item-b'}}">
+        <text class="name">{{item.name}}</text>
+        <navigator url="../category/category?id={{item.id}}" class="a">
+          <image mode="aspectFill" class="img" src="{{item.icon_url}}" background-size="cover"></image>
+        </navigator>
+      </view>
+    </block>
+  </view>
+  <!-- 分类结束 -->
   <!-- 品牌开始 -->
   <!-- <view wx:if="{{brands.length > 0}}" class="a-section a-brand">
     <view class="h">
@@ -58,7 +77,7 @@
   </view> -->
   <!-- 品牌结束 -->
   <!-- 新品开始 -->
-  <!-- <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
+  <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
     <view class="h">
       <view>
         <navigator url="../newGoods/newGoods">
@@ -75,7 +94,7 @@
         </navigator>
       </view>
     </view>
-  </view> --> 
+  </view>
   <!-- 新品结束 -->
   <!-- 热品开始 -->
   <!-- <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
@@ -127,18 +146,6 @@
     </view>
   </view> -->
   <!-- 专题结束 -->
-  <!-- 分类开始 -->
-  <view class="b category">
-    <block wx:for="{{firstCategoryList}}" wx:for-index="index" wx:key="{{item}}">
-      <view class="item {{index % 2 == 0 ? '' : 'item-b'}}">
-        <text class="name">{{item.name}}</text>
-        <navigator url="../category/category?id={{item.id}}" class="a">
-          <image mode="aspectFill" class="img" src="{{item.icon_url}}" background-size="cover"></image>
-        </navigator>
-      </view>
-    </block>
-  </view>
-  <!-- 分类结束 -->
   <!-- 分类商品开始 -->
   <view class="good-grid" wx:for="{{categoryGoodsList}}" wx:key="{{item.id}}">
     <view class="h">
