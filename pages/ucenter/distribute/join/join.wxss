@@ -1,0 +1,127 @@
+page {
+	background-color: #eee;
+}
+input {
+	display: bolck;
+	height: auto;
+	min-height: auto;
+}
+image {
+	display: block;
+	width: 100%;
+}
+.red {
+	color: red;
+}
+.clear {
+	content: '';
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
+	clear: both;
+}
+.topimg {
+	width: 100%;
+}
+.topimg image {
+	width: 100%;
+}
+.apply {
+	margin: 0rpx;
+	padding: 0rpx 20rpx;
+	background-color: white;
+}
+.apply .welcome {
+	padding: 20rpx 0rpx;
+	border-bottom: solid 1px #ddd;
+	font-weight: bold;
+}
+.apply .welcome, .apply .welcome text {
+	font-size: 31rpx;
+}
+.apply .welcome text {
+	font-weight: normal;
+}
+.apply .item {
+	padding: 20rpx 0rpx;
+	border-bottom: solid 1px #ddd;
+}
+.apply .item .left {
+	float: left;
+	padding: 5rpx 0 0 30rpx;
+	width: 200rpx;
+	font-size: 30rpx;
+}
+.apply .item .right {
+	float: left;
+	width: 450rpx;
+	font-size: 30rpx;
+}
+.read {
+	padding: 18rpx 0 16rpx 20rpx;
+	font-size: 30rpx;
+}
+.read checkbox {
+	position: relative;
+	top: -3rpx;
+}
+.target {
+	padding: 0rpx 0rpx;
+}
+.target .title {
+	padding: 12rpx 30rpx 12rpx 30rpx;
+	color: #888;
+	font-size: 30rpx;
+}
+.target .select {
+	padding: 20rpx 30rpx;
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	font-size: 32rpx;
+}
+.desc .main {
+	border-top: solid 1px #ddd;
+	border-bottom: solid 1px #ddd;
+	padding: 30rpx;
+	background-color: white;
+}
+.desc .main .fee {
+	position: relative;
+	float: left;
+	width: 50%;
+	text-align: center;
+	border-right: solid 1px #ddd;
+}
+.desc .main .distribute {
+	position: relative;
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+.desc .main .fee .icon image, .desc .main .distribute .icon image {
+	height: 170rpx;
+}
+.desc .main .fee .icon, .desc .main .distribute .icon {
+	margin: 0 auto;
+	width: 200rpx;
+}
+.desc .main .fee .icon {
+	transform: scale(0.6);
+}
+.desc .main .fee .text, .desc .main .distribute .text {
+	color: #ddd;
+}
+.desc .main .fee .number, .desc .main .distribute .number {
+	color: red;
+}
+.apply_box {
+	background-color: white;
+	padding: 20rpx;
+}
+.apply_btn {
+	background-color: rgb(236, 65, 73);
+	color: white;
+	font-size: 33rpx;
+}

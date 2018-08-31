@@ -1,0 +1,61 @@
+<view class="wrap">
+	<!-- 顶部图片开始 -->
+	<view class="topimg">
+		<image src="https://test-1256171234.cos.ap-beijing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180831111101.jpg" mode="widthFix" />
+	</view>
+	<!-- 顶部图片结束 -->
+	<!-- 申请信息开始 -->
+	<form>
+		<view class="apply">
+			<view class="welcome">欢迎加入<text class="red">餐帮</text>，请填写申请信息。</view>
+			<view class="item">
+				<view class="left">邀请人</view>
+				<input class="right red" value="正阳春侯建勋" disabled="true" placeholder=""></input>
+				<view class="clear"></view>
+			</view>
+			<view class="item">
+				<view class="left">姓名</view>
+				<input class="right" value="" placeholder="请填写真实姓名"></input>
+				<view class="clear"></view>
+			</view>
+			<view class="item">
+				<view class="left">手机号</view>
+				<input class="right" value="dd " placeholder="请填写手机号码"></input>
+				<view class="clear"></view>
+			</view>
+			<view class="read">
+				<checkbox checked="{{false}}" color="red" />
+				我已阅读并同意
+				<text class="red">《合伙人须知》</text>
+				<view class="clear"></view>
+			</view>
+		</view>
+		<!-- 合伙人等级 -->
+		<view class="level target">
+			<view class="title">请选择合伙人等级</view>
+			<view class="select">天使合伙人</view>
+		</view>
+		<!-- 费用及等级特权 -->
+		<view class="desc target">
+			<view class="title">费用及等级特权</view>
+			<view class="main">
+				<view class="fee">
+					<view class="icon"><image mode="aspectFill" src="/static/images/v.png" /></view>
+					<view class="text">加入费用</view>
+					<view class="number">￥18.00</view>
+				</view>
+				<view class="distribute">
+					<view class="icon"><image mode="aspectFill" src="/static/images/package.png" /></view>
+					<view class="text">提成比例</view>
+					<view class="number">一级：70%，二级：30%</view>
+				</view>
+				<view class="clear"></view>
+			</view>
+		</view>
+		<!-- 申请按钮 -->
+		<view class="apply_box">
+			<button class="apply_btn">立即成为合伙人</button>
+		</view>
+	</form>
+	<!-- 申请信息结束 -->
+</view>

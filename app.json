@@ -9,6 +9,7 @@
     "pages/ucenter/distribute/cash/cash",
     "pages/ucenter/distribute/order/order",
     "pages/ucenter/distribute/cash_record/cash_record",
+    "pages/ucenter/distribute/join/join",  
     "pages/catalog/catalog",
     "pages/notes/notes",
     "pages/newGoods/newGoods",
@@ -46,7 +47,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "碧水源",
+    "navigationBarTitleText": "优选客联盟",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": false
   },

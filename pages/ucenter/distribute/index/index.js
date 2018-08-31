@@ -21,8 +21,12 @@ Page({
     this.getDistributeDetail()
     .then(function (res) {
       if (res.errno === 0) {
-        console.log(res.data);
         that.setData(res.data);
+        if (!res.data.is_distributor) {
+          wx.navigateTo({
+            url: '../join/join'
+          })
+        }
         // return that.getCode(res.data.access_token)
       }
     })

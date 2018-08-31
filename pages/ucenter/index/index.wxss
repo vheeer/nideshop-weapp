@@ -1,193 +1,188 @@
-page{
-    height: 100%;
-    width: 100%;
-    background: #f4f4f4;
+page {
+  background-color: #eee;
 }
-.container{
-    background: #f4f4f4;
-    height: auto;
-    overflow: hidden;
-    width: 100%;
-}
-.profile-info{
-    width: 100%;
-    height: 280rpx;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 30.25rpx;
-    background: #333;
-}
-
-.profile-info .avatar{
-    height: 148rpx;
-    width: 148rpx;
-    border-radius: 50%;
-}
-
-.profile-info .info{
-    flex: 1;
-    height: 85rpx;
-    padding-left: 31.25rpx;
-}
-
-.profile-info .name{
-    display: block;
-    height: 45rpx;
-    line-height: 45rpx;
-    color: #fff;
-    font-size: 37.5rpx;
-    margin-bottom: 10rpx;
-}
-
-.profile-info .level{
-    display: block;
-    height: 30rpx;
-    line-height: 30rpx;
-    margin-bottom: 10rpx;
-    color: #7f7f7f;
-    font-size: 30rpx;
-}
-
-.user-menu{
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    background: #fff;
-}
-
-.user-menu .item{
-    float: left;
-    width: 33.33333%;
-    height: 187.5rpx;
-    border-right: 1px solid rgba(0,0,0,.15);
-    border-bottom: 1px solid rgba(0,0,0,.15);
-    text-align: center;
-}
-
-.user-menu .item .a{
-  display: flex;
+page image {
+  display: block;
   width: 100%;
   height: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
-
-.user-menu .item.no-border {
-    border-right: 0;
+view,text {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
 }
-
-.user-menu .item.item-bottom {
-    border-bottom: none;
+page .orange {
+  background-color: #fc9b32;
 }
-
-.user-menu .icon{
-    margin: 0 auto;
-    display: block;
-    height: 52.803rpx;
-    width: 52.803rpx;
-    margin-bottom: 16rpx;
+page .pink {
+  background-color: #fc8a82;
 }
-
-.user-menu .icon.order{
-    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -437.5rpx no-repeat;
-    background-size: 52.803rpx;
+page .rose {
+  background-color: #ff5b69;
 }
-
-.user-menu .icon.coupon{
-    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -62.4997rpx no-repeat;
-    background-size: 52.803rpx;
+page .green {
+  background-color: #1fda96;
 }
-
-.user-menu .icon.gift{
-    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -187.5rpx no-repeat;
-    background-size: 52.803rpx;
+page .blue {
+  background-color: #3ec7fe;
 }
-
-.user-menu .icon.address{
-    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 0 no-repeat;
-    background-size: 52.803rpx;
+page .clear {
+  clear: both;
 }
-
-.user-menu .icon.security{
-    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -500rpx no-repeat;
-    background-size: 52.803rpx;
+page .head {
+  height: 235rpx;
 }
-
-.user-menu .icon.kefu{
-    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -312.5rpx no-repeat;
-    background-size: 52.803rpx;
+page .head > image {
+  position: absolute;
+  height: 235rpx;
 }
-
-.user-menu .icon.help{
-    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -250rpx no-repeat;
-    background-size: 52.803rpx;
+page .head .mes_box {
+  position: relative;
+  padding: 0 25rpx 25rpx 25rpx;
 }
-
-.user-menu .icon.feedback{
-    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/ucenter-sdf6a55ee56-f2c2b9c2f0.png) 0 -125rpx no-repeat;
-    background-size: 52.803rpx;
+page .head .mes_box .avatar_box {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 200rpx;
+  overflow: hidden;
+  float: left;
 }
-
-
-.user-menu .txt{
-    display: block;
-    height: 24rpx;
-    width: 100%;
-    font-size: 24rpx;
-    color:#333;
+page .head .mes_box .avatar_box > image {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
-
-.logout{
-    margin-top: 50rpx;
-    height: 101rpx;
-    width: 100%;
-    line-height: 101rpx;
-    text-align: center;
-    background: #fff;
-    color: #333;
-    font-size: 30rpx;
+page .head .mes_box .name_box {
+  position: relative;
+  float: left;
+  padding: 10rpx 0 10rpx 20rpx;
+  font-size: 28rpx;
 }
-.getUserInfo {
-    -width:70px;
-    border:none;
-    top:-61px;
-    position:relative;
-    left:-13px;
-    height:80px; 
+page .head .mes_box .name_box .name {
+  color: white;
+  padding: 0 0 13rpx 0;
+  opacity: 0.9;
 }
-.mobile {
-    height:45px;
-    width:246px;
-    margin-left:0px;
-    margin-right:0px;
-    padding-left:0px;
-    padding-right:0px;
-    font-size:17px;
-    background-color:#333;
-    color:white;
-    text-align:left;
+page .head .mes_box .name_box .join {
+  color: #ddd;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 100rpx;
+  font-size: 18rpx;
+  width: 204rpx;
+  height: 36rpx;
 }
-.mobile_text {
-    margin-top:14px;
+page .head .mes_box .name_box .join > image,
+page .head .mes_box .name_box .join > view {
+  position: relative;
+  margin-top: 5rpx;
+  float: left;
 }
-.mobile_text text {
-    font-size:17px;
-    color: white;
+page .head .mes_box .name_box .join > view {
+  padding: 0 0 0 10rpx;
+  opacity: 0.8;
 }
-button.a {
-    margin:0 auto;
-    height:45px;
-    width:45px;
-    margin-left:0;
-    margin-right:0;
-    padding-left:0;
-    padding-right:0;
-    padding-top:3px;
-    background-color:white;
+page .head .mes_box .name_box .join > image {
+  width: 30rpx;
 }
-button::after {
-  border: 0;
-} 
+page .head .mes_box .name_box .join > .right {
+  float: right;
+  padding: 0 13rpx 0 0;
+}
+page .main {
+  position: relative;
+  margin-top: -85rpx;
+  padding: 0 30rpx;
+  z-index: 100;
+}
+page .main .model {
+  border-radius: 20rpx;
+  background-color: white;
+  margin: 0 0 30rpx 0;
+}
+page .main > .m0 {
+  height: 130rpx;
+}
+page .main > .m0 .item {
+  position: relative;
+  float: left;
+  padding: 23rpx 0 0 0;
+  width: 33.33%;
+  text-align: center;
+}
+page .main > .m0 .item .number {
+  font-size: 29rpx;
+  color: red;
+}
+page .main > .m0 .item .text {
+  position: relative;
+  font-size: 24rpx;
+  padding: 9rpx 0 0 0;
+}
+page .main > .mn > .top {
+  position: relative;
+  padding: 10rpx;
+  border-bottom: solid 1px #ddd;
+}
+page .main > .mn > .top > image {
+  position: relative;
+  display: block;
+  width: 60rpx;
+  height: 60rpx;
+}
+page .main > .mn > .top > view {
+  position: absolute;
+  line-height: 20rpx;
+  left: 85rpx;
+  top: 32rpx;
+  font-size: 30rpx;
+}
+page .main > .mn > .body {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 25rpx 0;
+}
+page .main > .mn > .body > .item {
+  position: relative;
+  text-align: center;
+  padding: 40rpx 0;
+  width: 173rpx;
+}
+page .main > .mn > .body > .item > .icon_box {
+  padding: 15rpx;
+  margin: 0 auto;
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 150rpx;
+  overflow: hidden;
+}
+page .main > .mn > .body > .item .text {
+  padding: 15rpx 0 0 0;
+  color: #666;
+  font-size: 25rpx;
+}
+page .main > .m1 {
+  height: 800rpx;
+}
+page .bottom {
+  position: relative;
+  width: 100%;
+  height: 50rpx;
+}
+page .bottom .content {
+  position: absolute;
+  margin: 0 0 0 -76rpx;
+  left: 50%;
+}
+page .bottom .content .logo {
+  display: inline-block;
+  position: relative;
+  width: 33rpx;
+  top: 6rpx;
+  left: -10rpx;
+}
+page .bottom .content .text {
+  display: inline;
+  color: #666;
+  font-size: 25rpx;
+}

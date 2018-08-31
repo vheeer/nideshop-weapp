@@ -1,6 +1,6 @@
 // const ApiRootUrl = 'http://127.0.0.1:8360/api/';
 const ApiRootUrl = 'https://www.yinmudianying.club/nideshop-mul-dev/api/';
-const mch = "bishuiyuan";
+const mch = "river";
 const title = "";
 const shop_type = 2;
 module.exports = {

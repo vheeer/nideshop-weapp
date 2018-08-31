@@ -1,88 +1,113 @@
-<view class="container">
-  <view class="profile-info">
-    <image class="avatar" src="{{userInfo.avatar}}"></image>
-    <view class="info">
-      <text class="name">{{userInfo.nickname}}</text>
-      <!-- <text class="level">{{userInfo.username}}</text> -->
-       <!-- <button open-type="getUserInfo" class="getUserInfo" plain="{{true}}" hover-start-time="0" hover-stay-time="0"  bindgetuserinfo="bindgetuserinfo">点击这里登陆</button> -->
-        <view wx:if="{{!userInfo.mobile}}">
-          <button class="mobile" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击这里绑定您的手机号</button>
+
+  <view>
+    <!-- 头部开始 -->
+    <view class="head">
+      <image src="https://test-1256171234.cos.ap-beijing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180831080842.jpg"/>
+      <view class="mes_box">
+        <view class="avatar_box">
+          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536237912&di=b83a6dd61304957b1b0ddefddef78f03&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.sccnn.com%2Fbimg%2F338%2F24556.jpg"/>
         </view>
-        
-        <view wx:if="{{userInfo.mobile}}" class="mobile_text">
-          <text>{{userInfo.mobile}}</text>
+        <view class="name_box">
+          <view class="name">
+            天津大萍科技有限公司
+          </view>
+          <view class="join">
+            <image mode="widthFix" src="/static/images/hand.png"/>
+            <view>加入优选客联盟</view>
+            <view class="right">></view>
+          </view>
         </view>
+        <view class="clear"/>
+      </view>
+    </view>
+    <!-- 头部结束 -->
+    <!-- 主体开始 -->
+    <view class="main">
+      <!-- 第零块开始 -->
+      <view class="model m0">
+        <view class="item packet">
+          <view class="number">0.00</view>
+          <view class="text">钱包</view>
+        </view>
+        <view class="item count">
+          <view class="number">0.00</view>
+          <view class="text">佣金</view>
+        </view>
+        <view class="item collect">
+          <view class="number">0</view>
+          <view class="text">队员</view>
+        </view>
+        <view class="clear"/>
+      </view>
+      <!-- 第零块结束 -->
+      <!-- 第一块开始 -->
+      <view class="model mn m1">
+        <view class="top">
+          <view>我的服务</view>
+          <image mode="aspectFill" src="/static/images/star.png"/>
+        </view>
+        <view class="body">
+          <!-- 订单 -->
+          <view class="item">
+            <view class="icon_box orange">
+              <image src="/static/images/board.png"/>
+            </view>
+            <view class="text">
+              我的订单
+            </view>
+          </view>
+          <!-- 浏览记录 -->
+          <view class="item">
+            <view class="icon_box pink">
+              <image src="/static/images/histroy.png"/>
+            </view>
+            <view class="text">
+              浏览记录
+            </view>
+          </view>
+          <!-- 优选客联盟 -->
+          <view class="item">
+            <view class="icon_box rose">
+              <image src="/static/images/join.png"/>
+            </view>
+            <view class="text">
+              优选客联盟
+            </view>
+          </view>
+          <!-- 加群 -->
+          <view class="item">
+            <view class="icon_box green">
+              <image src="/static/images/group.png"/>
+            </view>
+            <view class="text">
+              加群
+            </view>
+          </view>
+          <!-- 地址 -->
+          <view class="item first">
+            <view class="icon_box blue">
+              <image src="/static/images/address.png"/>
+            </view>
+            <view class="text">
+              地址管理
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 第一块结束 -->
+      <!-- 第二块开始 -->
+      <!-- 第二块结束 -->
+      <!-- 第三块开始 -->
+      <!-- 第三块结束 -->
+      <!-- 第四块开始 -->
+      <!-- 第四块结束 -->
+    </view>
+    <!-- 主体结束 -->
+    <view class="bottom">
+      <view class="content">
+        <view class="logo"><image mode="widthFix" src="/static/images/ucenter.png"/></view>
+        <view class="text">优选客联盟</view>
+        <view class="clear"/>
+      </view>
     </view>
   </view>
-
-  <view class="user-menu">
-    <view class="item">
-      <navigator url="/pages/ucenter/order/order" class="a">
-        <text class="icon order"></text>
-        <text class="txt">我的订单</text>
-      </navigator>
-    </view>
-  <!--   <view class="item">
-      <navigator url="/pages/ucenter/coupon/coupon" class="a">
-        <text class="icon coupon"></text>
-        <text class="txt">优惠券</text>
-      </navigator>
-    </view> -->
-    <!-- <view class="item no-border">
-      <navigator url="url" class="a">
-        <text class="icon gift"></text>
-        <text class="txt">礼品卡</text>
-      </navigator>
-    </view> -->
-    <view class="item">
-      <navigator url="/pages/ucenter/collect/collect" class="a">
-        <text class="icon address"></text>
-        <text class="txt">我的收藏</text>
-      </navigator>
-    </view>
-    <view class="item">
-      <navigator url="/pages/ucenter/footprint/footprint" class="a">
-        <text class="icon security"></text>
-        <text class="txt">我的足迹</text>
-      </navigator>
-    </view>
-    <!-- <view class="item no-border">
-      <navigator url="url" class="a">
-        <text class="icon kefu"></text>
-        <text class="txt">会员福利</text>
-      </navigator>
-    </view> -->
-    <view class="item">
-      <navigator url="../address/address" class="a">
-        <text class="icon address"></text>
-        <text class="txt">地址管理</text>
-      </navigator>
-    </view>
-    <!-- <view class="item">
-      <navigator url="url" class="a">
-        <text class="icon security"></text>
-        <text class="txt">账号安全</text>
-      </navigator>
-    </view> -->
-    <view class="item" bindtap="contect">
-      <button 
-          type="default-light" 
-          session-from="weapp" 
-          open-type="contact"
-          class="a">
-        <navigator url="url">
-          <text class="icon kefu"></text>
-          <text class="txt">在线客服</text>
-        </navigator>
-      </button>
-    </view>
-    <view class="item">
-      <navigator url="/pages/ucenter/distribute/index/index" class="a">
-        <text class="icon feedback"></text>
-        <text class="txt">分销</text>
-      </navigator>
-    </view>
-  </view>
-
-  <!--<view class="logout" bindtap="exitLogin">退出登录</view>-->
-</view>
