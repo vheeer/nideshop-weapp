@@ -1,6 +1,6 @@
 .banner {
   width: 100%;
-  height: 260px;
+  height:182px;
 }
 .banner navigator {
   height: 100%;
@@ -35,9 +35,9 @@
   margin: 20rpx auto 0 auto;
 }
 .tags .item view {
-  border-radius:999rpx;
-  overflow:hidden;
-  padding:36rpx;
+  border-radius: 999rpx;
+  overflow: hidden;
+  padding: 36rpx;
   width: 100%;
 }
 .tags .item:nth-child(1)>view {
@@ -439,9 +439,60 @@
   background-color: white;
 }
 .b.category .h {
-  padding: 0 0 22rpx 0;
+  padding: 22rpx 0 22rpx 0;
   text-align: center;
 }
 .a-new .item {
   padding: 1px;
+}
+.float {
+  float: left;
+}
+.invitation {
+  position: fixed;
+  padding: 10rpx;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+}
+.invitation .avatar_box {
+  width: 90rpx;
+  border-radius: 200rpx;
+  overflow: hidden;
+}
+.invitation .avatar_box image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.invitation .icontent {
+  padding: 8rpx 0 0 15rpx;
+  width: 350rpx;
+  color: white;
+  font-size: 25rpx;
+}
+.invitation .btn {
+  box-sizing: content-box;
+  position: relative;
+  padding: 20rpx 0 0 10rpx;
+  width: 200rpx;
+  height: 55rpx;
+}
+.invitation .btn button {
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgb(60, 190, 104);
+  font-size: 20rpx;
+  line-height: 54rpx;
+}
+.invitation .close {
+  box-sizing: content-box;
+  padding: 20rpx 0 0 30rpx;
+  width: 40rpx;
+}
+.invitation .close image {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

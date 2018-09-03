@@ -5,35 +5,43 @@
 	</view>
 	<!-- 顶部图片结束 -->
 	<!-- 申请信息开始 -->
-	<form>
+	<form bindsubmit="formSubmit">
 		<view class="apply">
-			<view class="welcome">欢迎加入<text class="red">餐帮</text>，请填写申请信息。</view>
+			<view class="welcome">欢迎加入<text class="red">优选客联盟</text>，请填写申请信息。</view>
 			<view class="item">
 				<view class="left">邀请人</view>
-				<input class="right red" value="正阳春侯建勋" disabled="true" placeholder=""></input>
+				<input class="right red" name="parent" value="{{referee_user.nickname?referee_user.nickname:'总店'}}" disabled="true" placeholder=""></input>
 				<view class="clear"></view>
 			</view>
 			<view class="item">
 				<view class="left">姓名</view>
-				<input class="right" value="" placeholder="请填写真实姓名"></input>
+				<input class="right" name="real_name" value="" placeholder="请填写真实姓名"></input>
 				<view class="clear"></view>
 			</view>
 			<view class="item">
+				<button open-type="getPhoneNumber" class="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button>
 				<view class="left">手机号</view>
-				<input class="right" value="dd " placeholder="请填写手机号码"></input>
+				<input class="right" bindtap="getPhoneNumber" name="mobile" value="{{mobile}}" disabled="true" placeholder="请填写手机号码"></input>
 				<view class="clear"></view>
 			</view>
 			<view class="read">
-				<checkbox checked="{{false}}" color="red" />
+				<checkbox name="protocal" bindtap="agree" checked="{{false}}" color="red" />
 				我已阅读并同意
-				<text class="red">《合伙人须知》</text>
+				<text class="red" bindtap="showAgreement">《合伙人须知》</text>
 				<view class="clear"></view>
 			</view>
 		</view>
 		<!-- 合伙人等级 -->
 		<view class="level target">
 			<view class="title">请选择合伙人等级</view>
-			<view class="select">天使合伙人</view>
+			<!-- 合伙人选择开始 -->
+			<picker bindchange="changePartner" value="{{selectedPartnerIndex}}" range="{{partnerList}}">
+			    <view class="picker">
+			    	<view class="rightIcon"><image mode="aspectFit" src="/static/images/address_right.png" /></view>
+					<view class="select">{{partnerList[selectedPartnerIndex]}}</view>
+			    </view>
+			</picker>
+			<!-- 合伙人选择结束 -->
 		</view>
 		<!-- 费用及等级特权 -->
 		<view class="desc target">
@@ -42,19 +50,24 @@
 				<view class="fee">
 					<view class="icon"><image mode="aspectFill" src="/static/images/v.png" /></view>
 					<view class="text">加入费用</view>
-					<view class="number">￥18.00</view>
+					<view class="number"><text class="through">原价{{partner[selectedPartnerIndex]['original_price']}}元，</text>现价{{partner[selectedPartnerIndex]['price']}}元</view>
 				</view>
 				<view class="distribute">
 					<view class="icon"><image mode="aspectFill" src="/static/images/package.png" /></view>
 					<view class="text">提成比例</view>
-					<view class="number">一级：70%，二级：30%</view>
+					<view class="number">一级：{{partner[selectedPartnerIndex]['first_commision']}}%，二级：{{partner[selectedPartnerIndex]['second_commision']}}%</view>
 				</view>
 				<view class="clear"></view>
+			</view>
+			<view class="desc_content">
+				<text class='orange'>{{partnerList[selectedPartnerIndex]}}</text>加入费用<text class='orange bold'>￥{{partner[selectedPartnerIndex]['price']}}</text>
+				<view />
+				{{partner[selectedPartnerIndex]['desc']}}
 			</view>
 		</view>
 		<!-- 申请按钮 -->
 		<view class="apply_box">
-			<button class="apply_btn">立即成为合伙人</button>
+			<button formType="submit" class="apply_btn">立即成为合伙人</button>
 		</view>
 	</form>
 	<!-- 申请信息结束 -->

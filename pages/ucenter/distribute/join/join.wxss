@@ -10,6 +10,9 @@ image {
 	display: block;
 	width: 100%;
 }
+.through {
+	text-decoration: line-through;
+}
 .red {
 	color: red;
 }
@@ -44,6 +47,7 @@ image {
 	font-weight: normal;
 }
 .apply .item {
+	position: relative;
 	padding: 20rpx 0rpx;
 	border-bottom: solid 1px #ddd;
 }
@@ -80,6 +84,9 @@ image {
 	color: black;
 	font-weight: bold;
 	font-size: 32rpx;
+}
+.desc {
+	
 }
 .desc .main {
 	border-top: solid 1px #ddd;
@@ -124,4 +131,34 @@ image {
 	background-color: rgb(236, 65, 73);
 	color: white;
 	font-size: 33rpx;
+}
+.getPhoneNumber {
+	position: absolute;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+}
+.orange {
+	color: rgb(236, 65, 73);
+}
+.bold {
+	font-weight: bold;
+}
+.desc_content {
+	padding: 20rpx;
+	background-color: white;
+}
+.rightIcon {
+	position: absolute;
+	right: 20rpx;
+	width: 30rpx;
+	height: 100%;
+}
+.rightIcon image {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.picker {
+	position: relative;
 }

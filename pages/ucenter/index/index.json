@@ -1,3 +1,6 @@
-"window": {
-  "backgroundTextStyle": "dark",
-  "navigationBarBackgroundColor": "#fff"}
+{
+	"window": {
+	  "backgroundTextStyle": "dark",
+	  "navigationBarBackgroundColor": "#ddd"
+	}
+}

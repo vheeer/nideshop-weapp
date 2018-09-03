@@ -45,13 +45,13 @@ Page({
           'success': function (res) {
             console.log("success to requestPayment and res is: ", res);
             wx.redirectTo({
-              url: '/pages/payResult/payResult?status=1',
+              url: '/pages/payResult/payResult?status=1'
             })
           },
           'fail': function (res) {
             console.log("fail to requestPayment and res is: ", res);
             wx.redirectTo({
-              url: '/pages/payResult/payResult?status=0',
+              url: '/pages/payResult/payResult?status=0'
             })
           }
         })

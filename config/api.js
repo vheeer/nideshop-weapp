@@ -82,5 +82,6 @@ module.exports = {
 
   SetReferee: ApiRootUrl + 'user/setreferee?mch=' + mch, //设置推荐人
   Group: ApiRootUrl + 'user/group?mch=' + mch, //我的团队
-  Mobile: ApiRootUrl + 'user/number?mch=' + mch //获取手机号
+  Mobile: ApiRootUrl + 'user/number?mch=' + mch, //获取手机号
+  ApplyPay: ApiRootUrl + 'user/prepay?mch=' + mch //成为分销商支付
 };

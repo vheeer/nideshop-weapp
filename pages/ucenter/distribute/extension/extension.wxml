@@ -1,6 +1,6 @@
 <view>
 	<view class="canvas_box">
-	  <canvas class="canvas" canvas-id="canvas"></canvas>
+	  <canvas class="canvas" canvas-id="canvas" style="{{ 'height: ' + canvasH + 'px;' }}"></canvas>
 	</view>
 	<view>我的推广码</view>
 	<view>

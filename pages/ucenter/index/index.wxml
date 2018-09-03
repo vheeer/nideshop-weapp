@@ -5,19 +5,19 @@
       <image src="https://test-1256171234.cos.ap-beijing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180831080842.jpg"/>
       <view class="mes_box">
         <view class="avatar_box">
-          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536237912&di=b83a6dd61304957b1b0ddefddef78f03&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.sccnn.com%2Fbimg%2F338%2F24556.jpg"/>
+          <image src="{{avatar}}"/>
         </view>
         <view class="name_box">
           <view class="name">
-            天津大萍科技有限公司
+            {{nickname}}
           </view>
-          <view class="join">
+          <view data-page="{{userInfo.is_distributor === 1?'/pages/ucenter/distribute/index/index':'/pages/ucenter/distribute/join/join'}}" bindtap="tapItem" class="join">
             <image mode="widthFix" src="/static/images/hand.png"/>
-            <view>加入优选客联盟</view>
+            <view>{{userInfo.is_distributor === 0?'加入':''}}优选客联盟</view>
             <view class="right">></view>
           </view>
         </view>
-        <view class="clear"/>
+        <view class="clear"/> 
       </view>
     </view>
     <!-- 头部结束 -->
@@ -26,15 +26,15 @@
       <!-- 第零块开始 -->
       <view class="model m0">
         <view class="item packet">
-          <view class="number">0.00</view>
+          <view class="number">{{balance}}</view>
           <view class="text">钱包</view>
         </view>
         <view class="item count">
-          <view class="number">0.00</view>
+          <view wx:if="{{(balance || balance === 0) && (cash_paid || cash_paid === 0)}}" class="number">{{balance + cash_paid}}</view>
           <view class="text">佣金</view>
         </view>
         <view class="item collect">
-          <view class="number">0</view>
+          <view class="number">{{my_team}}</view>
           <view class="text">队员</view>
         </view>
         <view class="clear"/>
@@ -48,7 +48,7 @@
         </view>
         <view class="body">
           <!-- 订单 -->
-          <view class="item">
+          <view data-page="/pages/ucenter/order/order" bindtap="tapItem" class="item">
             <view class="icon_box orange">
               <image src="/static/images/board.png"/>
             </view>
@@ -57,7 +57,7 @@
             </view>
           </view>
           <!-- 浏览记录 -->
-          <view class="item">
+          <view data-page="../footprint/footprint" bindtap="tapItem" class="item">
             <view class="icon_box pink">
               <image src="/static/images/histroy.png"/>
             </view>
@@ -66,7 +66,7 @@
             </view>
           </view>
           <!-- 优选客联盟 -->
-          <view class="item">
+          <view data-page="{{userInfo.is_distributor === 1?'/pages/ucenter/distribute/index/index':'/pages/ucenter/distribute/join/join'}}" bindtap="tapItem" class="item">
             <view class="icon_box rose">
               <image src="/static/images/join.png"/>
             </view>
@@ -75,7 +75,7 @@
             </view>
           </view>
           <!-- 加群 -->
-          <view class="item">
+          <view bindtap="addGroup" class="item">
             <view class="icon_box green">
               <image src="/static/images/group.png"/>
             </view>
@@ -84,7 +84,7 @@
             </view>
           </view>
           <!-- 地址 -->
-          <view class="item first">
+          <view data-page="/pages/ucenter/address/address" bindtap="tapItem" class="item first">
             <view class="icon_box blue">
               <image src="/static/images/address.png"/>
             </view>

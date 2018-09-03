@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/auth/login/login",
     "pages/index/index",
+    "pages/auth/login/login",
     "pages/ucenter/distribute/group/group",
     "pages/ucenter/distribute/index/index",
     "pages/ucenter/distribute/extension/extension",
@@ -46,7 +46,7 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#E92D24",
     "navigationBarTitleText": "优选客联盟",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": false
@@ -62,12 +62,6 @@
         "iconPath": "static/images/ic_menu_choice_nor.png",
         "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/notes/notes",
-        "iconPath": "static/images/ic_menu_topic_nor.png",
-        "selectedIconPath": "static/images/ic_menu_topic_pressed.png",
-        "text": "活动"
       },
       {
         "pagePath": "pages/cart/cart",

@@ -1,6 +1,18 @@
 
 <!--index.wxml-->
 <view class="container">
+  <!-- 邀请开始 -->
+  <view wx:if="{{invitation_open}}" class="invitation">
+    <view class="float avatar_box">
+      <image mode="widthFix" src="{{userInfo.avatar}}" />
+    </view>
+    <view class="float icontent">亲爱的{{userInfo.nickname}}，成为优选客即刻赚佣金</view>
+    <view class="float btn"><button bindtap="go_distribute">立即成为优选客</button></view>
+    <view class="float close" bindtap="close">
+      <image mode="widthFix" src="/static/images/close.png" />
+    </view>
+  </view>
+  <!-- 邀请结束 -->
   <!-- 轮播开始 -->
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
@@ -19,15 +31,15 @@
   </view>
   <!-- 插图一结束 -->
   <!-- 频道开始 -->
-  <view wx:if="{{channel.length !== 0}}" class="m-menu">
+<!--   <view wx:if="{{channel.length !== 0}}" class="m-menu">
     <navigator class="item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
       <image src="{{item.icon_url}}" background-size="cover"></image>
       <text>{{item.name}}</text>
     </navigator>
-  </view>
+  </view> -->
   <!-- 频道结束 -->  
   <!-- 标签开始 -->
-  <view class="m-menu tags">
+<!--   <view class="m-menu tags">
     <block wx:for="{{tags}}" wx:key="{{item.id}}">
       <navigator class="item" url="{{item.link}}" >
         <view>
@@ -36,7 +48,7 @@
         <text>{{item.name}}</text>
       </navigator>
     </block>
-  </view>
+  </view> -->
   <!-- 标签结束 -->
   <!-- 分类开始 -->
   <view class="b category">

@@ -1,4 +1,4 @@
-<view wx:if="{{is_distributor}}" class="container">
+<view class="container">
   <view class="profile-info">
     <!-- 用户 -->
     <view class="user-info">
@@ -52,8 +52,9 @@
 
   <!--<view class="logout" bindtap="exitLogin">退出登录</view>-->
 </view>
+<!-- 
 <view wx:else>
-  <!-- 申请分销商表单开始  -->
+  申请分销商表单开始
   <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="real_name">
       <view class="section__title">姓名</view>
@@ -61,5 +62,5 @@
     </view>
     <button formType="submit">成为分销商</button>
   </form>
-  <!-- 申请分销商表单结束 -->
-</view>
+  申请分销商表单结束
+</view> -->

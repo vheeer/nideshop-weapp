@@ -17,7 +17,8 @@ Page({
     channel: [],
     others: [],
     tags: [],
-    notice: ""
+    notice: "",
+    invitation_open: false
   },
   onShareAppMessage: function (res) {
     return {
@@ -28,30 +29,6 @@ Page({
   getIndexData: function () {
     let that = this;
     util.request(api.IndexUrl + "&type=" + shop_type).then(function (res) {
-      // 分类整理
-      let cates = res.data['firstCategoryList'];
-      const newCates = [];
-      cates.forEach(cate => {
-        if (cate.name === '饮水机') {
-          return;
-        }
-        newCates.push(cate);
-      });
-      res.data['firstCategoryList'] = newCates;
-      // 标签整理
-      let tags = res.data['tagList'];
-      const newTags = [];
-      tags.forEach(cate => {
-        if (cate.name === '新品净水器') {
-          cate.link = '../newGoods/newGoods';
-        } else if (cate.name === '热卖净水器') {
-          cate.link = '../hotGoods/hotGoods';
-        } else {
-          cate.link = '/pages/tagDetail/tagDetail?id=' + cate.id;
-        }
-        newTags.push(cate);
-      });
-      res.data['tagList'] = newTags;
       if (res.errno === 0) {
         that.setData({
           newGoods: res.data.newGoodsList,
@@ -75,9 +52,24 @@ Page({
     //   console.log(res);
     // });
   },
+  go_distribute: function() {
+    wx.navigateTo({ url: '/pages/ucenter/distribute/join/join' })
+  },
+  close: function() {
+    this.setData({
+      invitation_open: false
+    })
+  },
   onLoad: function (options) {
-    console.log("index options: ", options);
-    this.getIndexData();
+    console.log("index options: ", options)
+
+    this.getIndexData()
+
+    const userInfo = wx.getStorageSync('userInfo');
+    this.setData({
+      userInfo: userInfo,
+      invitation_open: !userInfo.is_distributor
+    })
   },
   onReady: function () {
     // 页面渲染完成

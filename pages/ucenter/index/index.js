@@ -9,7 +9,26 @@ Page({
   },
   onLoad: function (onewGoodsptions) {
     // 页面初始化 options为页面跳转所带来的参数
+    const that = this;
     console.log(app.globalData);
+
+    this.setData(app.globalData);
+    this.getDistributeDetail()
+    .then(function (res) {
+      if (res.errno === 0) {
+        that.setData(res.data);
+        if (!res.data.is_distributor) {
+          wx.navigateTo({
+            url: '../join/join'
+          })
+        }
+        // return that.getCode(res.data.access_token)
+      }
+    })
+    .then(res => {
+      // console.log("二维码: ", res);
+      
+    });
 
   },
   onReady: function () {
@@ -39,6 +58,16 @@ Page({
     // 页面关闭
   },
   
+  getDistributeDetail() {
+    let that = this;
+    util.request(api.DistributeList, {}, "GET")
+    .then(res => {
+      console.log("获取我的分销订单res ", res)
+    });
+    return util.request(api.DistributeDetail, {
+      
+    })
+  },
   bindgetuserinfo: function(res){
     const that = this;
     console.log("res: ", res);
@@ -95,4 +124,24 @@ Page({
       });
     }
   },
+  tapItem(e) {
+    console.log('type: ', e);
+    wx.navigateTo({ url: e.currentTarget.dataset.page });
+  },
+  addGroup(e) {
+    if(this.data.userInfo.is_distributor !== 1){
+      return wx.showModal({
+        title: '提示',
+        content: '成为优选客后可以加群',
+        showCancel: false
+      })
+    }
+    wx.previewImage({ 
+      current: 'https://nideshop-admin-dva-1256171234.cos.ap-beijing.myqcloud.com/river/upload/images/addGroupCode.jpg', 
+      urls: [ 'https://nideshop-admin-dva-1256171234.cos.ap-beijing.myqcloud.com/river/upload/images/addGroupCode.jpg' ], 
+      complete: function(res){
+        console.log("res", res)
+      } 
+    })
+  }
 })

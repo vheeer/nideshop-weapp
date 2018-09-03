@@ -172,28 +172,30 @@ Page({
         console.log(share_temp_file_path);
         console.log(code_temp_file_path);
         console.log("width，height: ", { code_size, share_size })
-        //大图
         {
           var context = wx.createCanvasContext('canvas');
-          //背景图
-          // 二维码位于中心
-          // context.drawImage(share_temp_file_path, 0, 0, share_size.width, share_size.height, 0, 0, W, share_size.height * W / share_size.width);
-          // 二维码位于左下角 
+
+          // 二维码位置、尺寸（背景图宽的百分比）
+          const left = 68;
+          const top = 110;
+          const width = 25;
+          const height = 25;
+
+          // 背景图
           const CW = W;
           const CH = share_size.height * W / share_size.width;
+          this.setData({ canvasH: CH });
           context.drawImage(share_temp_file_path, 0, 0, share_size.width, share_size.height, 0, 0, CW, CH);
+
           // 二维码图
           const w = W;
           const h = code_size.height * W / code_size.width;
-          // 二维码位于中心
-          // context.drawImage(code_temp_file_path, 0, 0, code_size.width, code_size.height, w / 3, share_size.height * W / (share_size.width * 3), w/3, h/3);
-          // 二维码位于左下角 
-          context.drawImage(code_temp_file_path, 0, 0, code_size.width, code_size.height, CW*(12/100), CH*(77/100), CW*(20/100), CW*(20/100));
+
+          context.drawImage(code_temp_file_path, 0, 0, code_size.width, code_size.height, CW*(left/100), CW*(top/100), CW*(width/100), CW*(height/100));
 
           //二维码上文字
           context.setFontSize(30);
           context.setFillStyle('black');
-          // context.fillText("长按识别", 10, 320);
 
           //绘制
           context.draw(false, function(){
@@ -210,7 +212,6 @@ Page({
               }
             })
           })
-
         }
       })
       .catch(error => {
