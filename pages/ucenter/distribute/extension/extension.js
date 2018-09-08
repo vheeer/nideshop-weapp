@@ -112,10 +112,17 @@ Page({
   },
 
   /**
-   * 用户点击右上角分享
+   * 分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '优选客联盟',
+      path: '/pages/index/index?referee=' + wx.getStorageSync('userInfo').id
+    }
   },
   imgtap: function (e) {
     console.log(e);

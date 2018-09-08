@@ -2,6 +2,8 @@ var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 const { title } = require('../../config/api.js');
 
+//获取应用实例
+const app = getApp()
 Page({
   data: {
     navList: [],
@@ -12,8 +14,14 @@ Page({
     goodsCount: 0,
     scrollHeight: 0
   },
-  onLoad: function (options) {
-    this.getCatalog();
+  onShow: function (options) {
+    const { currentTopcategoryId } = app.globalData;
+    if (currentTopcategoryId) {
+      const currentCategory = this.getCurrentCategory(currentTopcategoryId)
+      this.setData({
+        currentCategory
+      })
+    }
   },
   getCatalog: function () {
     //CatalogList
@@ -42,28 +50,22 @@ Page({
         that.setData({
           currentCategory: res.data.currentCategory
         });
+        app.globalData.currentTopcategoryId = res.data.currentCategory.id
       });
   },
   onReady: function () {
     // 页面渲染完成
   },
-  onShow: function () {
-    // 页面显示
+  onLoad: function () {
+    console.log()
+    // 页面加载
+    this.getCatalog();
   },
   onHide: function () {
     // 页面隐藏
   },
   onUnload: function () {
     // 页面关闭
-  },
-  getList: function () {
-    var that = this;
-    util.request(api.ApiRootUrl + 'api/catalog/' + that.data.currentCategory.cat_id)
-      .then(function (res) {
-        that.setData({
-          categoryList: res.data,
-        });
-      });
   },
   switchCate: function (event) {
     var that = this;

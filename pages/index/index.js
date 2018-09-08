@@ -36,6 +36,7 @@ Page({
           topics: res.data.topicList,
           brands: res.data.brandList,
           categoryGoodsList: res.data.categoryGoodsList,
+          topCategoryList: res.data.topCategoryList,
           firstCategoryList: res.data.firstCategoryList,
           banner: res.data.banner,
           channel: res.data.channel,
@@ -54,6 +55,14 @@ Page({
   },
   go_distribute: function() {
     wx.navigateTo({ url: '/pages/ucenter/distribute/join/join' })
+  },
+  goCata(e) {
+    console.log(e);
+    const { id } = e.currentTarget.dataset;
+    app.globalData.currentTopcategoryId = id;
+    wx.switchTab({
+      url: '/pages/catalog/catalog?id=' + id
+    })
   },
   close: function() {
     this.setData({

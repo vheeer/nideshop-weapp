@@ -24,7 +24,7 @@ Page({
       }
     ],
     partnerList: ['梦想合伙人', '天使合伙人'],
-    selectedPartnerIndex: 0,
+    selectedPartnerIndex: 1,
     agree: false
   },
   onLoad: function (options) {
@@ -120,11 +120,11 @@ Page({
     console.log('申请分销商form发生了submit事件，携带数据为：', e.detail.value);
     const { real_name, mobile } = e.detail.value;
 
-    if(real_name.length < 2)
+    if(real_name.length < 2 && 0)
       return wx.showModal({ title: "提示", content: "请输入姓名", showCancel: false });
-    if(!this.data.mobile || this.data.mobile === '')
+    if((!this.data.mobile || this.data.mobile === '') && 0)
       return wx.showModal({ title: "提示", content: "请绑定手机", showCancel: false });
-    if(!this.data.agree)
+    if(!this.data.agree && 0)
       return wx.showModal({ title: "提示", content: "请阅读协议", showCancel: false });
 
     util.request(api.ApplyPay, { real_name, mobile, distributor_level: this.data.selectedPartnerIndex }, "POST")
@@ -149,9 +149,12 @@ Page({
                 content: '支付成功', 
                 showCancel: false, 
                 success: function(res) {
+                  let userInfo = wx.getStorageSync('userInfo');
+                  userInfo.is_distributor = 1
+                  wx.setStorageSync('userInfo', userInfo)
                   if (res.confirm) {
                     wx.switchTab({
-                      url: '/pages/ucenter/distribute/index/index'
+                      url: '/pages/ucenter/index/index'
                     })
                   }
                 }

@@ -23,6 +23,7 @@
         <!-- <view>使用微信号直接登录</view> -->
         
     	<button open-type="getUserInfo" type="default" class="login-btn" bindgetuserinfo="startLogin">登录</button>
+        <view class="mes">（点击登录获取您的昵称、头像信息）</view>
 
 <!--     	<view class="form-item-text">
     		<navigator url="/pages/auth/register/register" class="register">注册账号</navigator>

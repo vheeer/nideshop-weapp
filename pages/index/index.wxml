@@ -6,7 +6,7 @@
     <view class="float avatar_box">
       <image mode="widthFix" src="{{userInfo.avatar}}" />
     </view>
-    <view class="float icontent">亲爱的{{userInfo.nickname}}，成为优选客即刻赚佣金</view>
+    <view class="float icontent">亲爱的{{userInfo.nickname}}，成为优选客即刻赚90%佣金</view>
     <view class="float btn"><button bindtap="go_distribute">立即成为优选客</button></view>
     <view class="float close" bindtap="close">
       <image mode="widthFix" src="/static/images/close.png" />
@@ -14,7 +14,7 @@
   </view>
   <!-- 邀请结束 -->
   <!-- 轮播开始 -->
-  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
       <navigator url="{{item.link}}">
         <image mode="aspectFill" src="{{item.image_url}}" background-size="cover"></image>
@@ -52,15 +52,15 @@
   <!-- 标签结束 -->
   <!-- 分类开始 -->
   <view class="b category">
-    <view class="h">
+<!--     <view class="h">
       分类
-    </view>
-    <block wx:for="{{firstCategoryList}}" wx:for-index="index" wx:key="{{item}}">
+    </view> -->
+    <block wx:for="{{topCategoryList}}" wx:for-index="index" wx:key="{{item}}">
       <view class="item {{index % 2 == 0 ? '' : 'item-b'}}">
         <text class="name">{{item.name}}</text>
-        <navigator url="../category/category?id={{item.id}}" class="a">
-          <image mode="aspectFill" class="img" src="{{item.icon_url}}" background-size="cover"></image>
-        </navigator>
+        <view data-id="{{item.id}}" bindtap="goCata" class="a .navigator">
+          <image mode="scaleToFill" class="img" src="{{item.wap_banner_url}}" background-size="cover"></image>
+        </view>
       </view>
     </block>
   </view>

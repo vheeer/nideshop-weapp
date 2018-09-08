@@ -18,10 +18,11 @@
 				<input class="right" name="real_name" value="" placeholder="请填写真实姓名"></input>
 				<view class="clear"></view>
 			</view>
-			<view class="item">
-				<button open-type="getPhoneNumber" class="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button>
+			<view class="item" bindtap="getPhoneNumber">
 				<view class="left">手机号</view>
-				<input class="right" bindtap="getPhoneNumber" name="mobile" value="{{mobile}}" disabled="true" placeholder="请填写手机号码"></input>
+				<input wx:if="{{mobile}}" class="right" bindtap="getPhoneNumber" name="mobile" value="{{mobile}}" disabled="true" placeholder="请填写手机号码"></input>
+				<view wx:if="{{!mobile}}" class="right getPhoneNumber visible">点击获取手机号码</view>
+				<button wx:if="{{!mobile}}" open-type="getPhoneNumber" class="getPhoneNumber right" bindgetphonenumber="getPhoneNumber"></button>
 				<view class="clear"></view>
 			</view>
 			<view class="read">

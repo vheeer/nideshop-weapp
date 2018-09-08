@@ -133,10 +133,17 @@ image {
 	font-size: 33rpx;
 }
 .getPhoneNumber {
+	display: inline-block;
 	position: absolute;
+	padding-left: 0rpx;
+	padding-right: 0rpx;
+	min_width: 100rpx;
+	width: 100rpx;
+	height: 55rpx;
+	font-size: 17rpx;
+	border: 0;
+	box-shadow: 0;
 	opacity: 0;
-	width: 100%;
-	height: 100%;
 }
 .orange {
 	color: rgb(236, 65, 73);
@@ -161,4 +168,8 @@ image {
 }
 .picker {
 	position: relative;
+}
+.visible {
+	opacity: 1;
+	color:#777;
 }

@@ -2,7 +2,7 @@
   <view wx:if="{{!openAttr}}">
     <swiper wx:if="{{!play}}" class="goodsimgs" indicator-dots="true" autoplay="{{swiperAutoPlay}}" interval="3000" duration="1000">
       <swiper-item wx:for="{{gallery}}" wx:key="{{item.id}}">
-        <image wx:if="{{(item.type === 'jpg' || item.type === 'jpeg' || item.type === 'png' || item.type === 'gif')}}" src="{{item.img_url}}" background-size="cover"></image>
+        <image wx:if="{{(item.type === 'jpg' || item.type === 'jpeg' || item.type === 'png' || item.type === 'gif' || item.type === 'bmp' || item.type === 'webp' || item.type === 'tiff' )}}" src="{{item.img_url}}" background-size="cover"></image>
         <view wx:else class="play_box" catchtap="play">
           <image 
             class="play_btn"
