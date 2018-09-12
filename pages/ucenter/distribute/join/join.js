@@ -9,7 +9,7 @@ Page({
         name: '梦想合伙人',
         original_price: 300,
         price: 8,
-        first_commision: 50,
+        first_commision: 40,
         second_commision: 10,
         desc: '你的粉丝购买商品或者加入优选客联盟等，您可获得提成，躺着就能赚钱'
       },
@@ -18,7 +18,7 @@ Page({
         name: '天使合伙人',
         original_price: 1000,
         price: 18,
-        first_commision: 70,
+        first_commision: 40,
         second_commision: 20,
         desc: '你的粉丝购买商品或者加入优选客联盟等，您可获得提成，躺着就能赚钱'
       }

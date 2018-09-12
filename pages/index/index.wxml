@@ -6,7 +6,7 @@
     <view class="float avatar_box">
       <image mode="widthFix" src="{{userInfo.avatar}}" />
     </view>
-    <view class="float icontent">亲爱的{{userInfo.nickname}}，成为优选客即刻赚90%佣金</view>
+    <view class="float icontent">亲爱的{{userInfo.nickname}}，成为优选客即刻赚50%佣金</view>
     <view class="float btn"><button bindtap="go_distribute">立即成为优选客</button></view>
     <view class="float close" bindtap="close">
       <image mode="widthFix" src="/static/images/close.png" />

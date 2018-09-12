@@ -66,13 +66,56 @@ Page({
   
   },
   withDraw: function(e) {
+    const _this = this;
     console.log('提现form发生了submit事件，携带数据为：', e.detail.value)
     const { real_name, amount } = e.detail.value;
-    if(amount > 50)
-      return console.log("金额应小于50");
-    util.request(api.DistributeWithdraw, { real_name, amount }, "POST")
-      .then(function (res) {
-        console.log("提现res: ", res);
-      });
+    if (amount % 1 !== 0) {
+      wx.showModal({
+        title: '提示',
+        content: '请输入整数',
+        showCancel: false,
+        success: function(res) {
+          
+        }
+      })
+      return false
+    }
+    const max_amount = 100;
+    if (amount > max_amount) {
+      wx.showModal({
+        title: '提示',
+        content: '单次提现金额应小于' + max_amount + '元', 
+        showCancel: false,
+        success: function(res) {
+          
+        }
+      })
+      return false
+    }
+    const parseAmount = (amount * 100);
+
+    util.request(api.DistributeWithdraw, { real_name, amount: parseAmount }, "POST")
+    .then(function (res) {
+      console.log("提现res: ", res);
+      if (res.errno === 0) {
+        wx.showModal({
+          title: '提示',
+          content: '您已经成功提现' + amount + '元', 
+          showCancel: false,
+          success: function(res) {
+            _this.onShow()
+          }
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.errmsg, 
+          showCancel: false,
+          success: function(res) {
+            _this.onShow()
+          }
+        })
+      }
+    });
   }
 })
