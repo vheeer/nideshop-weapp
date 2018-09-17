@@ -184,7 +184,7 @@ Page({
 
           // 二维码位置、尺寸（背景图宽的百分比）
           const left = 68;
-          const top = 110;
+          const top = 100;
           const width = 25;
           const height = 25;
 
@@ -193,6 +193,13 @@ Page({
           const CH = share_size.height * W / share_size.width;
           this.setData({ canvasH: CH });
           context.drawImage(share_temp_file_path, 0, 0, share_size.width, share_size.height, 0, 0, CW, CH);
+
+          console.log('屏宽', W);
+          console.log('屏高', '');
+          console.log('原图宽', share_size.width);
+          console.log('原图高', share_size.height);
+          console.log('图宽', CW);
+          console.log('图高', CH);
 
           // 二维码图
           const w = W;

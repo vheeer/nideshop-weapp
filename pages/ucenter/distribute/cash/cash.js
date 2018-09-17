@@ -1,13 +1,15 @@
 // pages/ucenter/distribute/cash/cash.js
 var api = require('../../../../config/api.js');
 var util = require('../../../../utils/util.js');
+var user = require('../../../../services/user.js');
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    userInfo: {}
   },
 
   /**
@@ -28,7 +30,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    const that = this;
+    user.loginByWeixin().then(res => {
+      that.setData({
+        userInfo: res.data.userInfo
+      });
+      app.globalData.token = res.data.token;
+    }).catch((err) => {
+      console.log(err)
+    });
+  },
+
+  getUserInfo: function() {
+
   },
 
   /**
@@ -92,7 +106,7 @@ Page({
       })
       return false
     }
-    const parseAmount = (amount * 100);
+    const parseAmount = amount * 100;
 
     util.request(api.DistributeWithdraw, { real_name, amount: parseAmount }, "POST")
     .then(function (res) {
@@ -100,7 +114,7 @@ Page({
       if (res.errno === 0) {
         wx.showModal({
           title: '提示',
-          content: '您已经成功提现' + amount + '元', 
+          content: '您已经成功提现' + amount + '元',
           showCancel: false,
           success: function(res) {
             _this.onShow()
@@ -109,7 +123,7 @@ Page({
       } else {
         wx.showModal({
           title: '提示',
-          content: res.errmsg, 
+          content: res.errmsg,
           showCancel: false,
           success: function(res) {
             _this.onShow()

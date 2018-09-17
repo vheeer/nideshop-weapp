@@ -11,7 +11,12 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     const that = this;
     console.log(app.globalData);
+  },
+  onReady: function () {
 
+  },
+  onShow: function () { 
+    const that = this;
     this.setData(app.globalData);
     this.getDistributeDetail()
     .then(function (res) {
@@ -29,12 +34,6 @@ Page({
       // console.log("二维码: ", res);
       
     });
-
-  },
-  onReady: function () {
-
-  },
-  onShow: function () { 
 
     let userInfo = wx.getStorageSync('userInfo');
     let token = wx.getStorageSync('token');
@@ -137,8 +136,8 @@ Page({
       })
     }
     wx.previewImage({ 
-      current: 'https://nideshop-admin-dva-1256171234.cos.ap-beijing.myqcloud.com/river/upload/images/addGroupCode.jpg', 
-      urls: [ 'https://nideshop-admin-dva-1256171234.cos.ap-beijing.myqcloud.com/river/upload/images/addGroupCode.jpg' ], 
+      current: 'https://nideshop-admin-dva-1256171234.cos.ap-beijing.myqcloud.com/river/static/addGroupCode.jpg', 
+      urls: [ 'https://nideshop-admin-dva-1256171234.cos.ap-beijing.myqcloud.com/river/static/addGroupCode.jpg' ], 
       complete: function(res){
         console.log("res", res)
       } 

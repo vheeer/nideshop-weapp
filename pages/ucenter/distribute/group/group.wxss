@@ -2,6 +2,9 @@
 page {
 	background-color: #eee;
 }
+.red {
+	color: #E92D24;
+}
 .user {
 	position: relative;
 	padding: 8px;

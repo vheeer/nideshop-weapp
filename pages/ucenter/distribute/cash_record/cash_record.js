@@ -2,6 +2,7 @@
 var util = require('../../../../utils/util.js');
 var api = require('../../../../config/api.js');
 var user = require('../../../../services/user.js');
+var backgrounds = require('../../../../utils/abnor.js');
 Page({
 
   /**
@@ -28,6 +29,8 @@ Page({
         that.setData({ list });
       }
     });
+    console.log("背景图： ", backgrounds);
+    this.setData({ backgrounds });
   },
 
   /**

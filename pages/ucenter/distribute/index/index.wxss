@@ -1,9 +1,24 @@
 /* pages/ucenter/distribute/index/index.wxss */
-
-page{
-    height: 100%;
-    width: 100%;
-    background: #f4f4f4;
+page {
+  background-color: #eee;
+}
+page .orange {
+  background-color: #fc9b32;
+}
+page .pink {
+  background-color: #fc8a82;
+}
+page .rose {
+  background-color: #ff5b69;
+}
+page .green {
+  background-color: #1fda96;
+}
+page .blue {
+  background-color: #3ec7fe;
+}
+page .clear {
+  clear: both;
 }
 .container{
     background: #f4f4f4;
@@ -13,8 +28,9 @@ page{
 }
 .profile-info{
     width: 100%;
-    padding: 0 30.25rpx;
-    background: red;
+    padding: 0 30.25rpx 80rpx 30.25rpx;
+    background: #E92D24;
+    background-image: url('https://test-1256171234.cos.ap-beijing.myqcloud.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180831080842.jpg');
     color: white;
 }
 
@@ -44,7 +60,7 @@ page{
     height: 30rpx;
     line-height: 30rpx;
     margin-bottom: 10rpx;
-    color: #7f7f7f;
+    color: #ccc;
     font-size: 30rpx;
 }
 
@@ -206,7 +222,10 @@ top:28px;
 	border: solid 1px white;
 	border-radius: 4px;
 	font-size: 17px;
-	padding: 2px 5px;
+	padding: 4px 8px;
+}
+.cash_btn navigator {
+    font-size: 28rpx;
 }
 .real_name input {
     display: inline-block;
@@ -223,4 +242,94 @@ form button {
     line-height: 54px;
     padding: 0 0 0 8px;
 
+}
+
+
+
+
+
+page image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+view,text {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+page .main {
+  position: relative;
+  margin-top: -85rpx;
+  padding: 0 30rpx;
+  z-index: 100;
+}
+page .main .model {
+  border-radius: 20rpx;
+  background-color: white;
+  margin: 0 0 30rpx 0;
+}
+page .main > .m0 {
+  height: 130rpx;
+}
+page .main > .m0 .item {
+  position: relative;
+  float: left;
+  padding: 23rpx 0 0 0;
+  width: 33.33%;
+  text-align: center;
+}
+page .main > .m0 .item .number {
+  font-size: 29rpx;
+  color: red;
+}
+page .main > .m0 .item .text {
+  position: relative;
+  font-size: 24rpx;
+  padding: 9rpx 0 0 0;
+}
+page .main > .mn > .top {
+  position: relative;
+  padding: 10rpx;
+  border-bottom: solid 1px #ddd;
+}
+page .main > .mn > .top > image {
+  position: relative;
+  display: block;
+  width: 60rpx;
+  height: 60rpx;
+}
+page .main > .mn > .top > view {
+  position: absolute;
+  line-height: 20rpx;
+  left: 85rpx;
+  top: 32rpx;
+  font-size: 30rpx;
+}
+page .main > .mn > .body {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 25rpx 0;
+}
+page .main > .mn > .body > .item {
+  position: relative;
+  text-align: center;
+  padding: 40rpx 0;
+  width: 173rpx;
+}
+page .main > .mn > .body > .item > .icon_box {
+  padding: 15rpx;
+  margin: 0 auto;
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 150rpx;
+  overflow: hidden;
+}
+page .main > .mn > .body > .item .text {
+  padding: 15rpx 0 0 0;
+  color: #666;
+  font-size: 25rpx;
+}
+page .main > .m1 {
+  height: 800rpx;
 }

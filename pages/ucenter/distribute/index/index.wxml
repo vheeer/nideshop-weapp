@@ -13,16 +13,64 @@
     <view class="commision">
       <view class="cash">
         <view class="cash_btn"><navigator url="/pages/ucenter/distribute/cash/cash">提现</navigator></view>
-        <view class="title">可提现佣金</view>
-        <view class="money">{{balance}}元</view>
+        <view class="title">可提现佣金： {{balance}}元</view>
+        <!-- <view class="money">{{balance}}元</view> -->
       </view>
       <view class="cash_paid">
-        <view class="title">成功提现金额</view>
-        <view class="money">{{cash_paid}}元</view>
+        <view class="title">成功提现金额： {{cash_paid}}元</view>
+        <!-- <view class="money">{{cash_paid}}元</view> -->
       </view>
     </view>
   </view>
 
+  <!-- 第一块开始 -->
+  <view class="main">
+      <view class="model mn m1">
+<!--         <view class="top">
+          <view>我的服务</view>
+          <image mode="aspectFill" src="/static/images/star.png"/>
+        </view> -->
+        <view class="body">
+          <!-- 分销订单 -->
+          <view data-page="/pages/ucenter/distribute/order/order" bindtap="tapItem" class="item">
+            <view class="icon_box orange">
+              <image src="/static/images/board.png"/>
+            </view>
+            <view class="text">
+              分销订单
+            </view>
+          </view>
+          <!-- 提现明细 -->
+          <view data-page="/pages/ucenter/distribute/cash_record/cash_record" bindtap="tapItem" class="item">
+            <view class="icon_box pink">
+              <image src="/static/images/address.png"/>
+            </view>
+            <view class="text">
+              提现明细
+            </view>
+          </view>
+          <!-- 我的团队 -->
+          <view data-page="/pages/ucenter/distribute/group/group" bindtap="tapItem" class="item">
+            <view class="icon_box rose">
+              <image src="/static/images/join.png"/>
+            </view>
+            <view class="text">
+              我的团队
+            </view>
+          </view>
+          <!-- 推广 -->
+          <view data-page="/pages/ucenter/distribute/extension/extension?share_background={{share_background}}&&code={{code}}" bindtap="tapItem" class="item">
+            <view class="icon_box green">
+              <image src="/static/images/group.png" />
+            </view>
+            <view class="text">
+              推广
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+<!-- 
   <view class="user-menu">
     <view class="item">
       <navigator url="/pages/ucenter/distribute/order/order" class="a">
@@ -48,7 +96,7 @@
         <text class="txt">推广</text>
       </navigator>
     </view>
-  </view>
+  </view> -->
 
   <!--<view class="logout" bindtap="exitLogin">退出登录</view>-->
 </view>

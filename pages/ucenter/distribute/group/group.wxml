@@ -3,7 +3,10 @@
 		<view class="user">
 			<!-- 级别 -->
 			<view class="level">
-				我的{{item.depth}}级下线
+
+				<text wx:if="{{item.depth == 1}}" class="red">我的店铺</text>
+				<text wx:else>我的{{item.depth - 1}}级下线</text>
+				
 			</view>
 			<!-- 昵称 -->
 			<view class="nickname">

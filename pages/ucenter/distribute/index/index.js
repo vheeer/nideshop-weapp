@@ -15,7 +15,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onShow: function (options) {
     const that = this;
     this.setData(app.globalData);
     this.getDistributeDetail()
@@ -46,7 +46,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onLoad: function () {
   
   },
 
@@ -107,6 +107,10 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  tapItem(e) {
+    console.log('type: ', e);
+    wx.navigateTo({ url: e.currentTarget.dataset.page });
   },
   formSubmit: function (e) {
     console.log('申请分销商form发生了submit事件，携带数据为：', e.detail.value)

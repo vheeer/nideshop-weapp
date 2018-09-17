@@ -1,5 +1,10 @@
 <view class="container">
     <view class="orders">
+        <!-- 没有订单背景图 -->
+        <view wx:if="{{list.length === 0}}" class="no_data_box">
+            <image class="no_data" mode="widthFix" src="{{backgrounds.ORDER.image}}" />
+            <view class="no_title">还没有提现记录哦</view>
+        </view>
         <view class="order" wx:for="{{list}}" wx:key="{{item.id}}">
             <view class="h">
                 <view class="l">提现金额：{{item.cash_price}}元</view>

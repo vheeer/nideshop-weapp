@@ -30,7 +30,7 @@
           <view class="text">钱包</view>
         </view>
         <view class="item count">
-          <view wx:if="{{(balance || balance === 0) && (cash_paid || cash_paid === 0)}}" class="number">{{balance + cash_paid}}</view>
+          <view wx:if="{{commision || commision === 0}}" class="number">{{commision}}</view>
           <view class="text">佣金</view>
         </view>
         <view class="item collect">
@@ -74,13 +74,13 @@
               优选客联盟
             </view>
           </view>
-          <!-- 加群 -->
+          <!-- 加客服 -->
           <view bindtap="addGroup" class="item">
             <view class="icon_box green">
               <image src="/static/images/group.png"/>
             </view>
             <view class="text">
-              加群
+              加客服
             </view>
           </view>
           <!-- 地址 -->

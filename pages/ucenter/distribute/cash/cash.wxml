@@ -3,7 +3,7 @@
 	<view class="cash">
         <view class="cash_btn"><navigator url="/pages/ucenter/distribute/cash_record/cash_record">提现记录</navigator></view>
         <view class="title">可提现佣金</view>
-        <view class="money">{{balance}}元</view>
+        <view class="money">{{userInfo.balance}}元</view>
     </view>
 	<!-- 提现开始  -->
 	<form bindsubmit="withDraw" bindreset="formReset">

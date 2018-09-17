@@ -1,8 +1,8 @@
 <view>
 	<view class="canvas_box">
-	  <canvas class="canvas" canvas-id="canvas" style="{{ 'height: 1100rpx' }}"></canvas>
+	  <canvas class="canvas" canvas-id="canvas"></canvas>
 	</view>
-	<view>我的推广码</view>
+	<!-- <view>我的推广码</view> -->
 	<view>
 		<image class="share_img_tmp" bindtap="imgtap" src="{{share_img_tmp}}" mode="widthFix" />
 	</view>

@@ -11,17 +11,14 @@ page {
 	font-size: 17px;
 	padding: 2px 5px;
 }
-.real_name {
+.real_name, .amount {
 	position: relative;
+	margin: 0 20rpx;
+	padding: 0 20rpx;
 	height: 54px;
 	background-color: white;
-	margin: 8px 0;
-}
-.amount {
-	position: relative;
-	height: 54px;
-	background-color: white;
-	margin: 8px 0;
+	border-radius: 10rpx;
+	margin: 3px 0;
 }
 .real_name view {
 	position: absolute;
@@ -46,7 +43,7 @@ page {
 }
 form button {
 	margin: 20px 8px;
-	background-color: red;
+	background-color: #E92D24;
 	color: white;
 }
 .cash_btn {
@@ -59,7 +56,7 @@ form button {
 	padding: 0px 5px;
 }
 .cash {
-	background-color: red;
+	background-color: #E92D24;
 }
 .cash .cash_btn {
 	padding: 8px;

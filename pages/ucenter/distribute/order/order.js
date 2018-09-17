@@ -1,6 +1,7 @@
 // pages/ucenter/distribute/order/order.js
 var api = require('../../../../config/api.js');
 var util = require('../../../../utils/util.js');
+var backgrounds = require('../../../../utils/abnor.js');
 Page({
 
   /**
@@ -20,7 +21,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
     const that = this;
     this.getList()
     .then(function (res) {
@@ -33,6 +33,8 @@ Page({
         that.setData({ list });
       }
     });
+    console.log("背景图： ", backgrounds);
+    this.setData({ backgrounds });
   },
 
   /**
