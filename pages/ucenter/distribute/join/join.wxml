@@ -34,7 +34,7 @@
 		</view>
 		<!-- 合伙人等级 -->
 		<view class="level target">
-			<view class="title">请选择合伙人等级</view>
+			<view class="title">请选择合伙人类型</view>
 			<!-- 合伙人选择开始 -->
 			<picker bindchange="changePartner" value="{{selectedPartnerIndex}}" range="{{partnerList}}">
 			    <view class="picker">
@@ -46,17 +46,19 @@
 		</view>
 		<!-- 费用及等级特权 -->
 		<view class="desc target">
-			<view class="title">费用及等级特权</view>
+			<view class="title">费用及合伙人特权</view>
 			<view class="main">
 				<view class="fee">
 					<view class="icon"><image mode="aspectFill" src="/static/images/v.png" /></view>
 					<view class="text">加入费用</view>
-					<view class="number"><text class="through">原价{{partner[selectedPartnerIndex]['original_price']}}元，</text>现价{{partner[selectedPartnerIndex]['price']}}元</view>
+<!-- 					<view class="number"><text class="through">原价{{partner[selectedPartnerIndex]['original_price']}}元，</text>现价{{partner[selectedPartnerIndex]['price']}}元</view>	 -->				
+<view class="number"><text class="through"></text>现价{{partner[selectedPartnerIndex]['price']}}元</view>
 				</view>
 				<view class="distribute">
 					<view class="icon"><image mode="aspectFill" src="/static/images/package.png" /></view>
 					<view class="text">提成比例</view>
-					<view class="number">一级：{{partner[selectedPartnerIndex]['first_commision']}}%，二级：{{partner[selectedPartnerIndex]['second_commision']}}%</view>
+					<view class="number">朋友：{{partner[selectedPartnerIndex]['first_commision']}}%</view>
+<!-- 					<view class="number">朋友：{{partner[selectedPartnerIndex]['first_commision']}}%，粉丝：{{partner[selectedPartnerIndex]['second_commision']}}%</view> -->
 				</view>
 				<view class="clear"></view>
 			</view>

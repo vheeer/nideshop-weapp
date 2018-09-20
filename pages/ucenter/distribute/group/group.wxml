@@ -5,7 +5,8 @@
 			<view class="level">
 
 				<text wx:if="{{item.depth == 1}}" class="red">我的店铺</text>
-				<text wx:else>我的{{item.depth - 1}}级下线</text>
+				<!-- <text wx:else>我的{{item.depth - 1}}粉丝</text> -->
+				<text wx:else>我的粉丝</text>
 				
 			</view>
 			<!-- 昵称 -->
@@ -13,9 +14,9 @@
 				{{item.nickname}}
 			</view>
 			<!-- 类型 -->
-			<view class="is_distributor">
-				{{item.is_distributor?"分销商":"粉丝"}}
-			</view>
+			<!-- <view class="is_distributor">
+				{{item.is_distributor?"粉丝":"粉丝"}}
+			</view> -->
 			<!-- 头像 -->
 			<view class="avatar_box">
 				<image class="avatar" src="{{item.avatar}}" />

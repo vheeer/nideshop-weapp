@@ -35,7 +35,7 @@
         </view>
         <view class="item collect">
           <view class="number">{{my_team}}</view>
-          <view class="text">队员</view>
+          <view class="text">粉丝</view>
         </view>
         <view class="clear"/>
       </view>
@@ -66,14 +66,14 @@
             </view>
           </view>
           <!-- 优选客联盟 -->
-          <view data-page="{{userInfo.is_distributor === 1?'/pages/ucenter/distribute/index/index':'/pages/ucenter/distribute/join/join'}}" bindtap="tapItem" class="item">
+          <!-- <view data-page="{{userInfo.is_distributor === 1?'/pages/ucenter/distribute/index/index':'/pages/ucenter/distribute/join/join'}}" bindtap="tapItem" class="item">
             <view class="icon_box rose">
               <image src="/static/images/join.png"/>
             </view>
             <view class="text">
               优选客联盟
             </view>
-          </view>
+          </view> -->
           <!-- 加客服 -->
           <view bindtap="addGroup" class="item">
             <view class="icon_box green">
